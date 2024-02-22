@@ -12,6 +12,7 @@ import {
 } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 
+import { MainNavItem } from "@/types/nav"
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -69,8 +70,8 @@ export function CommandMenu({ ...props }: DialogProps) {
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Links">
             {docsConfig.mainNav
-              .filter((navitem) => !navitem.external)
-              .map((navItem) => (
+              .filter((navitem: MainNavItem) => !navitem.external)
+              .map((navItem: MainNavItem) => (
                 <CommandItem
                   key={navItem.href}
                   value={navItem.title}
@@ -85,7 +86,7 @@ export function CommandMenu({ ...props }: DialogProps) {
           </CommandGroup>
           {docsConfig.sidebarNav.map((group) => (
             <CommandGroup key={group.title} heading={group.title}>
-              {group.items.map((navItem) => (
+              {group.items.map((navItem: MainNavItem) => (
                 <CommandItem
                   key={navItem.href}
                   value={navItem.title}
