@@ -79,6 +79,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+      - name: Upload to artifact the out folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: ./out # or path/to/artifact
 
   # Deployment job
   deploy:
@@ -95,4 +100,4 @@ jobs:
         aws-region: eu-central-1
 
     - name: Deploy out site to S3 bucket
-      run: aws s3 sync ./* s3://learnpython.today --delete
+      run: aws s3 sync ./out s3://learnpython.today --delete
