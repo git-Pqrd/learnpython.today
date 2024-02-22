@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  buildAndDeploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -76,15 +76,15 @@ jobs:
       - name: Build with Next.js and export to out.
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
-      - name: Checkout
-        uses: actions/checkout@v1
-  
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
+  
+      - name: Checkout
+        uses: actions/checkout@v1
   
       - name: Deploy out site to S3 bucket
         run: aws s3 sync ./out s3://learnpython.today --delete
