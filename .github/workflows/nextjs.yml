@@ -94,7 +94,5 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
 
-    - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./public/ s3://learnpython.today --delete
     - name: Deploy out site to S3 bucket
-      run: aws s3 sync ./out s3://learnpython.today --delete
+      run: aws s3 sync ./out/* s3://learnpython.today --delete
