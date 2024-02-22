@@ -96,3 +96,5 @@ jobs:
 
     - name: Deploy static site to S3 bucket
       run: aws s3 sync ./public/ s3://learnpython.today --delete
+    - name: Deploy out site to S3 bucket
+      run: aws s3 sync ./out s3://learnpython.today --delete
