@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { CommandMenu } from "@/components/command-menu"
@@ -20,7 +18,7 @@ export function SiteHeader() {
             <CommandMenu />
           </div>
           <nav className="flex items-center">
-            <Link
+            <a
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
@@ -36,8 +34,8 @@ export function SiteHeader() {
                 <Icons.gitHub className="h-4 w-4" />
                 <span className="sr-only">GitHub</span>
               </div>
-            </Link>
-            <Link
+            </a>
+            <a
               href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
@@ -53,7 +51,7 @@ export function SiteHeader() {
                 <Icons.twitter className="h-4 w-4 fill-current" />
                 <span className="sr-only">Linkedin</span>
               </div>
-            </Link>
+            </a>
             <ModeToggle />
           </nav>
         </div>

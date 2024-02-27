@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import Link, { LinkProps } from "next/link"
+import { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import { ViewVerticalIcon } from "@radix-ui/react-icons"
 
@@ -96,8 +96,8 @@ function MobileLink({
 }: MobileLinkProps) {
   const router = useRouter()
   return (
-    <Link
-      href={href}
+    <a
+      href={href.toString()}
       onClick={() => {
         router.push(href.toString())
         onOpenChange?.(false)
@@ -106,6 +106,6 @@ function MobileLink({
       {...props}
     >
       {children}
-    </Link>
+    </a>
   )
 }
