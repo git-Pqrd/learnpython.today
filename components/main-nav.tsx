@@ -29,6 +29,7 @@ export function MainNav() {
         >
           About Me
         </Link>
+        <a href="/hello">Hello</a>
         <Link
           href={siteConfig.links.github}
           className={cn(
