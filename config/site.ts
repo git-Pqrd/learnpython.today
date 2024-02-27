@@ -6,7 +6,6 @@ export const siteConfig = {
         "Website for the LearnPython.Today blog.",
     links: {
         linkedin: "https://www.linkedin.com/in/piquard/",
-        twitter: "https://twitter.com/learnpython.today",
         github: "https://github.com/git-Pqrd/learnpython.today",
     },
 }

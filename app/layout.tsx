@@ -86,7 +86,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex-1 ml-12">{children}</div>
+              <div className="flex-1 ml-12 py-8">{children}</div>
               <SiteFooter />
             </div>
           </ThemeProvider>
