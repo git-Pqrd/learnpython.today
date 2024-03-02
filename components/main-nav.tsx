@@ -29,6 +29,15 @@ export function MainNav() {
           About Me
         </a>
         <a
+          href="/blogs"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname === "/docs" ? "text-foreground" : "text-foreground/60"
+          )}
+        >
+          Blogs
+        </a>
+        <a
           href={siteConfig.links.github}
           className={cn(
             "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"

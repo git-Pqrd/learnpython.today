@@ -1,7 +1,10 @@
 import { siteConfig } from "@/config/site"
+import { Article } from "@/types/article"
+import { blogs } from "@/config/blogs"
 import { MainNavItem, SidebarNavItem } from "@/types/nav"
 
 interface DocsConfig {
+    blogs: Article[]
     mainNav: MainNavItem[]
     sidebarNav: SidebarNavItem[]
 }
@@ -22,6 +25,7 @@ export const docsConfig: DocsConfig = {
             external: true,
         },
     ],
+    blogs: blogs,
     sidebarNav: [
         {
             title: "Getting Started",

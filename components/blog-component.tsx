@@ -1,19 +1,12 @@
-import { BlogCard } from '@/components/card-component'
+import { BlogCard } from "@/components/card-component";
+import { Article } from "@/types/article";
 
-export function BlogComponent() {
-    return (
-        <div className='flex flex-wrap flex-row py-12 '>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-            <BlogCard/>
-        </div>
-    )
+export function BlogComponent(props: { blogs: Article[] }) {
+  return (
+    <div className="flex flex-wrap flex-row">
+      {props.blogs.map((article: Article) => (
+        <BlogCard article={article} />
+      ))}
+    </div>
+  );
 }
