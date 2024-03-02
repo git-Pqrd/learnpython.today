@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </ThemeProvider>
           <DefaultToaster />
         </body>
-        <GoogleAnalytics gaId="G-RK1D7R0HK7" />
+        <GoogleTagManager gtmId="G-RK1D7R0HK7" />
       </html>
     </>
   );
