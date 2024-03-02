@@ -15,11 +15,10 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
+    "LearnPython.today",
+    "How to learn python",
+    "Learn Python",
+    "Python",
   ],
   authors: [
     {
@@ -86,7 +85,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="flex-1 ml-12 py-8">{children}</div>
+              <div className="flex-1 p-1 md:ml-12 py-8">{children}</div>
               <SiteFooter />
             </div>
           </ThemeProvider>

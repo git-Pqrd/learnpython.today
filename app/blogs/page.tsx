@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { CH1 } from "@/components/custom-typo";
 import { blogs, } from "@/config/blogs"
 import { BlogComponent } from "@/components/blog-component";
 import { Article } from "@/types/article";
@@ -10,9 +11,7 @@ export default function HomeBlog() {
 
     return (
         <div>
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
-                Latest articles
-            </h1>
+            <CH1 text="Latest articles" />
             <BlogComponent blogs={filteredBlogs}/>
         </div>
     );

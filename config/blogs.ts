@@ -2,20 +2,22 @@ import { Article } from "@/types/article"
 
 export const blogs: Article[] = [
     {
-        "title": "Getting Started with the site",
-        "slug": "blogs/intro",
-        "tags": ["example", "sample", "article", "test"],
-        "synopsis": "This is a synopsis of the sample article, providing a brief overview of its contents.",
+        "title": "The 3 Steps of learning Python 🐍",
+        "href": "/blogs/intro",
+        "tags": ["Python", "Path", "Discussion"],
+        "synopsis": "My vision on what learning python takes.",
         "date": "02-03-2024",
-        "disabled": false
+        "disabled": false,
+        "extern": false
     },
     {
-        "title": "This is a Sample Article Title",
-        "slug": "about",
-        "tags": ["example", "sample", "article", "test"],
-        "synopsis": "This is a synopsis of the sample article, providing a brief overview of its contents.",
+        "title": "A bit about the author of the site",
+        "href": "/about",
+        "tags": ["Discussion"],
+        "synopsis": "Discover the person behind the website, their journey, and what inspires their content.",
         "date": "02-02-2024",
-        "disabled": false
+        "disabled": false,
+        "extern": false
     },
 ];
 

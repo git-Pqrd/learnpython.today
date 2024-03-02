@@ -1,11 +1,10 @@
 import Image from "next/image";
+import { CH1 } from "@/components/custom-typo";
 
 export default function About() {
   return (
-    <div className="text-lg py-12 max-w-[800px] ">
-      <h1 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-        Hi! I'm François, the creator of LearnPython.Today.
-      </h1>
+    <div className="text-lg py-12 max-w-4xl ">
+      <CH1 text={"Hi! I'm François, the creator of LearnPython.Today."} />
       <div className="flex items-end lg:ml-4 md:ml-2 py-3">
         <Image
           className="rounded-lg"
