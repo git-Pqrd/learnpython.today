@@ -7,7 +7,11 @@ export function AboutHome() {
         className="mt-10 scroll-m-20 border-b pb-1 text-3xl font-semibold
             tracking-tight transition-colors first:mt-0"
       >
-        Hey there, I'm <a href="/about">François! 👋 </a>{" "}
+        Hey there, I'm{" "}
+        <a href="/about" className="font-bold underline">
+          François!{" "}
+        </a>{" "}
+        👋
       </h2>
       <br />
       <p className="leading-7">
@@ -22,8 +26,10 @@ export function AboutHome() {
 
       <p className="leading-7 mt-3">
         I suggest beginning with the{" "}
-        <a href="/blog/intro">introductory article</a>, but feel free to explore
-        other sections first if you prefer.
+        <a href="/blog/intro" className="font-bold underline">
+          introductory article
+        </a>
+        , but feel free to explore other sections first if you prefer.
       </p>
     </div>
   );
