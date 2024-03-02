@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
+  other: { "google-adsense-account": "ca-pub-1597486652294367" },
   description: siteConfig.description,
   keywords: [
     "LearnPython.today",
