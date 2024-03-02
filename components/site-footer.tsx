@@ -21,9 +21,8 @@ export function SiteFooter() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            GitHub
+            GitHub.
           </a>
-          .
         </p>
       </div>
     </footer>
