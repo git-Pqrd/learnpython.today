@@ -14,7 +14,7 @@ export function BlogCard(props: { article: Article }) {
   const article = props.article;
   if (!article) return;
   return (
-    <Card className="w-[350px] mr-4 mb-4">
+    <Card className="w-[450px] mr-4 mb-4">
       <CardHeader>
         <CardTitle className="truncate">{article.title}</CardTitle>
         <CardDescription>{article.tags.map(tag => `${tag}, `)}</CardDescription>
