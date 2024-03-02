@@ -7,15 +7,13 @@ import { sortBlogsByDate} from "@/utils/blogsUtils"
 
 export default function HomeBlog() {
     let filteredBlogs: Article[] = sortBlogsByDate(blogs);
-    console.log("HomeBlog");
-    console.log(filteredBlogs);
 
     return (
         <div>
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
                 Latest articles
             </h1>
-            <BlogComponent blogs={blogs}/>
+            <BlogComponent blogs={filteredBlogs}/>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CaretSortIcon } from "@radix-ui/react-icons";
-import { Section } from "@types/section";
+import { Section } from "@/types/section";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -28,12 +28,12 @@ export default function ContentTable() {
           </CollapsibleTrigger>
 
           <CollapsibleContent className="space-y-2">
-            {section.subsections.map((sub: Section) => (
+            {section.subsections?.map((sub: Section) => (
               <div
-                key={sub}
+                key={sub.href}
                 className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm"
               >
-                {sub}
+                {sub.title}
               </div>
             ))}
           </CollapsibleContent>
@@ -43,37 +43,65 @@ export default function ContentTable() {
   );
 }
 
-const sections: Section = [
+const sections: Section[] = [
   {
     title: "Introduction to the blog",
-    subsections: ["What to expect"],
+    href: "",
   },
   {
     title: "Why Python?",
     subsections: [
-      "The importance of Python in today's world",
-      "Python's versatility across different fields",
+      {
+        href: "",
+        title: "The importance of Python in today's world",
+      },
+      {
+        href: "",
+        title: "Python's versatility across different fields",
+      },
     ],
+    href: "",
   },
   {
     title: "Navigating the World of Python Resources",
     subsections: [
-      "Recommended tutorials, books, and communities",
-      "How to avoid information overload",
+      {
+        href: "",
+        title: "Recommended tutorials, books, and communities",
+      },
+      {
+        href: "",
+        title: "How to avoid information overload",
+      },
     ],
+    href: "",
   },
   {
     title: "Staying Motivated on Your Learning Journey",
     subsections: [
-      "Overcoming common hurdles",
-      "Setting realistic goals and tracking progress",
+      {
+        href: "",
+        title: "Overcoming common hurdles",
+      },
+      {
+        href: "",
+        title: "Setting realistic goals and tracking progress",
+      },
     ],
+    href: "",
   },
   {
     title: "Transitioning from Learning to Doing",
     subsections: [
-      "How to start contributing to projects",
-      "Finding your niche in the Python community",
+      {
+        href: "",
+        title: "How to start contributing to projects",
+      },
+      {
+        href: "",
+        title: "Finding your niche in the Python community",
+      },
     ],
+    href: "",
   },
 ];
