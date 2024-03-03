@@ -8,6 +8,7 @@ export class Article {
   date: string;
   /** Link is the attr set with either the href or the slug. */
   extern: boolean;
+  starred?: boolean;
   disabled?: boolean;
 
   constructor(
@@ -16,6 +17,7 @@ export class Article {
     tags: Tag[],
     synopsis: string,
     date: string,
+    starred: boolean = false,
     disabled: boolean = false,
     extern: boolean = false
   ) {
@@ -24,6 +26,7 @@ export class Article {
     this.tags = tags;
     this.synopsis = synopsis;
     this.date = date;
+    this.starred = starred;
     this.disabled = disabled;
     this.extern = extern;
   }

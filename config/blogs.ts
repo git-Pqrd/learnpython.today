@@ -11,6 +11,7 @@ export const blogs: Article[] = [
     date: "03-03-2023",
     disabled: false,
     extern: false,
+    starred: true,
   },
   {
     title: "How to avoid tutorial-hell",
