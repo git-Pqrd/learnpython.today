@@ -22,7 +22,7 @@ export function BlogCard(props: { article: Article }) {
         <CardTitle className="truncate pb-1">{article.title}</CardTitle>
         <div className="flex">
           {article.tags.map((tag) => (
-            <TagComponent tag={tag} />
+            <TagComponent key={tag.text} tag={tag} />
           ))}
         </div>
       </CardHeader>
