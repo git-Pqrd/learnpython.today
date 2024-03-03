@@ -32,7 +32,7 @@ export function MainNav() {
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          About Me
+          About
         </a>
         <a
           href="/blogs"

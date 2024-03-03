@@ -1,8 +1,8 @@
 import { Article } from "@/types/article";
 import { knownTags as kt } from "@/types/tag";
 
-export const blogs: Article[] = [
-  {
+export const blogsDict: { [key: string]: Article } = {
+  intro: {
     title: "The 3 Steps of learning Python 🐍",
     href: "/blogs/intro",
     tags: [kt.python, kt.path, kt.discussion],
@@ -13,7 +13,7 @@ export const blogs: Article[] = [
     extern: false,
     starred: true,
   },
-  {
+  tutorial_hell: {
     title: "How to avoid tutorial-hell",
     href: "/blogs/avoid-tutorial-hell",
     tags: [kt.discussion, kt.path],
@@ -23,7 +23,7 @@ export const blogs: Article[] = [
     disabled: false,
     extern: false,
   },
-  {
+  about_me: {
     title: "A bit about the author of the site",
     href: "/about",
     tags: [kt.discussion],
@@ -33,4 +33,6 @@ export const blogs: Article[] = [
     disabled: false,
     extern: false,
   },
-];
+} as const;
+
+export const blogs = Object.values(blogsDict);

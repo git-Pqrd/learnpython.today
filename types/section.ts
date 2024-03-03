@@ -1,12 +1,12 @@
 export class Section {
   title: string;
-  href: string;
+  id: string;
   seen?: boolean;
   subsections?: Section[];
 
-  constructor(title: string, href: string, seen = false, subsections = []) {
+  constructor(title: string, id: string, seen = false, subsections = []) {
     this.title = title;
-    this.href = href;
+    this.id = id;
     this.seen = seen;
     this.subsections = subsections;
   }

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function TagComponent(props: { tag: Tag }) {
   return (
-    <Badge className="mr-1" variant="secondary">
+    <Badge className="cursor-pointer mr-1" variant="secondary">
       {props.tag.text}
     </Badge>
   );

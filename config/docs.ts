@@ -12,7 +12,7 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
     mainNav: [
         {
-            title: "About Me",
+            title: "About",
             href: "/about",
         },
         {
