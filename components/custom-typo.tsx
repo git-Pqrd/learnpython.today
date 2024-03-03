@@ -19,3 +19,9 @@ export function SubTitle(props: { text: string; class?: string }) {
     </p>
   );
 }
+
+export const boldPClasses =
+  "leading-7 text-xl font-semibold tracking-tight text-wrap md:ml-8";
+
+export const normalPClasses =
+  "leading-7 text-xl tracking-tight text-wrap mt-4";

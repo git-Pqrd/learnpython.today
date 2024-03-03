@@ -10,8 +10,9 @@ export default function BlogIntro() {
     <div className="max-w-4xl my-8 px-4">
       <CH1 text="The 3 steps of learning Python." />
       <SubTitle
-        class="mb-4"
-        text="Learning Python can be divided "
+        class="mb-6"
+        text="Learning Python can be divided in 3 parts.
+        The Syntax, Projects to learn and Projects to showcase your mastery. And that is it really..."
       />
       <Image
         className="rounded-lg"
@@ -22,25 +23,19 @@ export default function BlogIntro() {
       />
 
       <h2 className="text-2xl font-bold mt-6">
-        Understanding Python Syntax: The Foundation
+        The Syntax: The Foundation
       </h2>
       <p>
-        The first and foremost step in your Python journey is to familiarize
-        yourself with the syntax. Python is known for its readability and
-        simplicity, making it an excellent language for beginners and
-        professionals alike. Here at LearnPython.Today, we provide a
-        comprehensive introduction to Python syntax, covering everything from
-        basic data types to complex functions and classes.
-      </p>
+        While Python is known for its readability and simplicity, it is still a not english.</p>
 
-      <h3 className="text-xl font-semibold mt-4">Key Areas to Focus On:</h3>
+      <h3 className="text-xl font-semibold mt-4">The only theory you should know at first:</h3>
       <ul className="list-disc list-inside">
         <li>
           Variables and Data Types: Learn how to store and manipulate data.
         </li>
         <li>
           Control Flow: Understand how to use conditional statements and loops
-          to control the flow of your programs.
+          to control the flow of your programs. (If you are new to programming).
         </li>
         <li>
           Functions: Discover how to organize your code into reusable blocks.

@@ -10,8 +10,7 @@ export function AboutHome() {
         Hey there, I'm{" "}
         <a href="/about" className="font-bold underline">
           François!{" "}
-        </a>{" "}
-        👋
+        </a> 👋
       </h2>
       <br />
       <p className="leading-7">

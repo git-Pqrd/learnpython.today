@@ -1,19 +1,31 @@
 import Image from "next/image";
-import { CH1 } from "@/components/custom-typo";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { CH1, boldPClasses } from "@/components/custom-typo";
 
 export default function About() {
   return (
     <div className="text-lg py-12 max-w-4xl ">
       <CH1 text={"Hi! I'm François, the creator of LearnPython.Today."} />
-      <div className="flex items-end lg:ml-4 md:ml-2 py-3">
-        <Image
-          className="rounded-lg"
-          src={"/me.png"}
-          width={200}
-          height={150}
-          alt="Picture of the author"
-        />
-        <p className="leading-7 [&:not(:first-child)]:mt-6 text-wrap">
+      <div className="flex items-center md:items-end py-3 flex-col md:flex-row">
+        <HoverCard openDelay={0}>
+          <HoverCardTrigger>
+            <Image
+              className="rounded-lg"
+              src={"/me.png"}
+              width={500}
+              height={500}
+              alt="Picture of the author"
+            />
+          </HoverCardTrigger>
+          <HoverCardContent side="top" sideOffset={20}>
+            <div className="text-center font-bold">Hello it's me 👋👋👋</div>
+          </HoverCardContent>
+        </HoverCard>
+        <p className={boldPClasses}>
           I got into coding because I wanted to{" "}
           <b>solve real-world problems.</b> This problem-solving-driven
           approach, in my opinion, is a great way to approach coding. Adopting
@@ -22,7 +34,7 @@ export default function About() {
           software engineer at Google.
         </p>
       </div>
-      <p className="leading-7 [&:not(:first-child)]:mt-6 text-wrap">
+      <p className={`${boldPClasses} mt-4`}>
         <b>
           This blog is my attempt at sharing the lessons I've learned, aiming to
           simplify learning Python (and coding in general) for everyone.

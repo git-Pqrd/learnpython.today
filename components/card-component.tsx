@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Article } from "@/types/article";
+import { TagComponent } from "@/components/tag-component";
 
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -16,12 +16,18 @@ export function BlogCard(props: { article: Article }) {
   return (
     <Card className="max-w-full md:w-[450px] mr-4 mb-4 flex flex-col justify-between">
       <CardHeader>
-        <CardTitle className="truncate">{article.title}</CardTitle>
-        <CardDescription>{article.tags.map(tag => `${tag}, `)}</CardDescription>
+        <CardTitle className="truncate pb-1">{article.title}</CardTitle>
+        <div className="flex">
+          {article.tags.map((tag) => (
+            <TagComponent tag={tag} />
+          ))}
+        </div>
       </CardHeader>
       <CardContent>{article.synopsis}</CardContent>
       <CardFooter className="flex justify-end">
-        <a className="cursor-pointer" href={article.href}>Go to the article &rarr;</a>
+        <a className="cursor-pointer" href={article.href}>
+          Go to the article &rarr;
+        </a>
       </CardFooter>
     </Card>
   );
