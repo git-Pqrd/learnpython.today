@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BlogComponent } from "@/components/blog-component";
 import { blogs } from "@/config/blogs";
 import { AboutHome } from "@/components/about-home";
@@ -11,9 +12,7 @@ export default function Home() {
   return (
     <div>
       <CH1 text="Welcome to LearnPython.Today!" />
-      <SubTitle
-        text="A pragmatic plan on how to learn python. How and Why."
-      />
+      <SubTitle text="A pragmatic plan on how to learn python. How and Why." />
       <AboutHome />
       <BlogComponent blogs={filteredBlogs} />
     </div>

@@ -33,20 +33,20 @@ export function SectionTitle(props: { section?: Section; class?: string }) {
   return (
     <h3
       id={props.section.id}
-      className={`mt-8 scroll-m-20 text-2xl font-semibold tracking-tight ${props.class}`}
+      className={`mt-8 scroll-m-20 text-2xl font-bold tracking-tight mb-2 ${props.class}`}
     >
-      {props.section.title}
+      &rarr; {props.section.title}
     </h3>
   );
 }
 
 /** Custom SectionSubTitle */
-export function SectionSubTitle(props: { section?: Section; class?: string;}) {
+export function SectionSubTitle(props: { section?: Section; class?: string }) {
   if (props.section === undefined) return;
   return (
     <p
       id={props.section.id}
-      className={`font-bold text-xl text-muted-foreground mt-4 ${props.class}`}
+      className={`font-bold text-xl text-muted-foreground mt-3 ${props.class}`}
     >
       {props.section?.title}
     </p>

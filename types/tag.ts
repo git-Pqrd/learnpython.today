@@ -20,5 +20,9 @@ export const knownTags: { [key: string]: Tag } = {
     path:  {
         text: "Path",
         href: "/tags/path",
+    },
+    resources:  {
+        text: "Resources",
+        href: "/tags/resources",
     }
 };

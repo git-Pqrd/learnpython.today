@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://learnpython.today
+
+# Sitemaps
+Sitemap: https://learnpython.today/sitemap.xml

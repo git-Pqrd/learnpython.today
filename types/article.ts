@@ -6,7 +6,6 @@ export class Article {
   tags: Tag[];
   synopsis: string;
   date: string;
-  /** Link is the attr set with either the href or the slug. */
   extern: boolean;
   starred?: boolean;
   disabled?: boolean;

@@ -10,9 +10,12 @@ import {
 } from "@/components/custom-typo";
 import { Section } from "@/types/section";
 import { Sidebar } from "@/components/sidebar-component";
+import { CustomLink } from "@/types/link";
+import { LinkComponent } from "@/components/custom-link-component";
 
 export default function BlogIntro() {
   const article: Article = blogsDict.intro;
+  const tutoralHellLink: CustomLink = blogsDict.tutorial_hell as CustomLink;
   return (
     <div className="my-8 md:px-2 lg:px-4  flex justify-between flex-row">
       <div className="max-w-4xl ">
@@ -49,9 +52,6 @@ export default function BlogIntro() {
         </p>
         <SectionTitle section={sections[1]} />
         <SectionSubTitle section={sections[1]?.subsections?.[0]} />
-        <h3 className="text-xl font-semibold mt-4">
-          The only theory you should know at first:
-        </h3>
         <ul className="list-disc list-inside">
           <li>
             Variables and Data Types: Learn how to store and manipulate data.
@@ -64,31 +64,23 @@ export default function BlogIntro() {
           <li>
             Functions: Discover how to organize your code into reusable blocks.
           </li>
-          <li>
-            Modules and Packages: Explore how to enhance your programs with
-            pre-built functionalities.
-          </li>
         </ul>
+        <SectionSubTitle section={sections[1]?.subsections?.[1]} />
+        <p>
+          You can revisit the basics anytime. And most often than not, people
+          are ready to leave this step quit early. Most people are stuck here
+          for reasons explained in my <LinkComponent link={tutoralHellLink} /> article.
+        </p>
         <SectionTitle section={sections[2]} />
         <SectionSubTitle section={sections[2]?.subsections?.[0]} />
         <p>
-          Once you're comfortable with the basics, the next step is to apply
-          your knowledge to a project. Working on projects not only consolidates
-          your understanding of Python but also sparks your creativity and
-          problem-solving skills. At LearnPython.Today, we believe that passion
-          is the greatest motivator; therefore, we encourage you to choose a
-          project that genuinely interests you.
+          Got the basics? Great, now's the time to tackle some personal
+          projects. They're your playground for deepening Python skills,
+          unleashing creativity, and solving problems. Pick projects that grab
+          you, even if they don't end up polished and perfect. It's all about
+          the journey and the skills you pick up along the way.
         </p>
-        <h3 className="text-xl font-semibold mt-4">
-          Project Ideas to Get You Started:
-        </h3>
-        <ul className="list-disc list-inside">
-          <li>Web Scraping: Collect data from the internet for analysis.</li>
-          <li>Automation: Automate repetitive tasks to save time.</li>
-          <li>Web Development: Build a website with Flask or Django.</li>
-          <li>Data Analysis: Analyze datasets to uncover insights.</li>
-        </ul>
-        <SectionSubTitle section={sections[3]?.subsections?.[1]} />
+        <SectionSubTitle section={sections[2]?.subsections?.[1]} />
         <p>
           For those looking to secure a job or freelance opportunities, having a
           portfolio of projects is crucial. Your portfolio is a tangible proof
@@ -98,7 +90,7 @@ export default function BlogIntro() {
           portfolio that stands out.
         </p>
         <SectionTitle section={sections[3]} />
-        <SectionSubTitle section={sections[3]?.subsections?.[1]} />
+        <SectionSubTitle section={sections[3]?.subsections?.[0]} />
         <ul className="list-disc list-inside">
           <li>
             Diversify Your Projects: Include projects from different areas to
@@ -119,16 +111,21 @@ export default function BlogIntro() {
             showcasing web-based projects.
           </li>
         </ul>
+        <SectionSubTitle section={sections[3]?.subsections?.[1]} />
+        <p>
+          For those looking to secure a job or freelance opportunities, having a
+          portfolio of projects is crucial. Your portfolio is a tangible proof
+          of your skills and creativity. It should showcase a variety of
+          projects that demonstrate your ability to solve problems with Python.
+          At LearnPython.Today, we guide you through the process of building a
+          portfolio that stands out.
+        </p>
         <SectionTitle section={sections[4]} />
         <p>
-          Getting started with Python on LearnPython.Today is a journey that
-          takes you from learning the syntax to building a portfolio that can
-          impress potential employers. Remember, the key to success in
-          programming is continuous learning and practice. By focusing on the
-          syntax, engaging in projects that interest you, and building a strong
-          portfolio, you'll be well on your way to becoming useful in Python and
-          achieving your goals. Start your Python journey today and unlock the
-          endless possibilities that this powerful language has to offer.
+          Master the basics, then cycle between learning and doing. Aim higher
+          with each project, fueling your motivation and tackling tougher
+          challenges. Remember, demotivation is the main roadblock—keep pushing
+          forward!
         </p>
       </div>
       <Sidebar article={article} sections={sections} />
@@ -146,7 +143,7 @@ const sections: Section[] = [
     subsections: [
       {
         id: "basic-syntax",
-        title: "Video, Tutorials and TodoLists",
+        title: "The only theory you should know at first.",
       },
       {
         id: "leave-syntax",

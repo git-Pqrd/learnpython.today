@@ -33,6 +33,17 @@ export const blogsDict: { [key: string]: Article } = {
     disabled: false,
     extern: false,
   },
+  tuto_for_basics: {
+    title: "Resources for the first step.",
+    href: "/blogs/tuto-for-basics",
+    tags: [kt.discussion, kt.path, kt.resources],
+    synopsis:
+      "Get resources to clear as fast as possible your first step of the Python learning process.",
+    date: "04-03-2023",
+    disabled: true,
+    extern: false,
+  },
+
 } as const;
 
-export const blogs = Object.values(blogsDict);
+export const blogs = Object.values(blogsDict).filter((art: Article) => !art.disabled);
