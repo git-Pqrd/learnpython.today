@@ -50,6 +50,17 @@ export default function BlogIntro() {
     true /* external */,
     LINK_TYPE.YOUTUBE_VIDEO
   );
+  const pythonForProgrammersCodeCademy: CustomLink = new CustomLink(
+    "https://www.codecademy.com/learn/python-for-programmers",
+    "Python for programmer",
+    true /* external */
+  );
+  const pythonSyntaxVideo: CustomLink = new CustomLink(
+    "https://www.youtube.com/watch?v=A2NnIWCYnMQ",
+    "Python Syntax Quick",
+    true /* external */,
+    LINK_TYPE.YOUTUBE_VIDEO
+  );
   return (
     <div className="my-8 md:px-2 lg:px-4  flex justify-between flex-row">
       <div className="max-w-4xl ">
@@ -79,9 +90,8 @@ export default function BlogIntro() {
         <p>
           I will get started by saying that, as you might have read in my{" "}
           <LinkComponent link={introArticle} /> you can always go back and forth
-          between the basics and more advanced topics. Plus, as the Python idiom
-          goes, you should always <LinkComponent link={externalAFFNP} />. So if
-          you feel the urge to get started on a project, go for it!
+          between the basics and more advanced topics. So if you feel the urge
+          to get started on a project, go for it!
           <br />
           <br />
           And of course, you can skip the first section if you know already a
@@ -113,7 +123,15 @@ export default function BlogIntro() {
         <SectionTitle section={sections[2]} />
         <SectionSubTitle section={sections[2]?.subsections?.[0]} />
         If you have really no time to mess around, here is a video on how to{" "}
-        <LinkComponent link={ytTooShorts} />.
+        <LinkComponent link={ytTooShorts} />, I doubt however that this will be
+        enough so <LinkComponent link={pythonForProgrammersCodeCademy} /> will
+        be great if you want something structured. <br />
+        This should be enough if you want something quick (16mins):{" "}
+        <LinkComponent link={pythonSyntaxVideo} />
+        <SectionSubTitle section={sections[2]?.subsections?.[1]} />
+        Plus, as the Python idiom goes, you should always{" "}
+        <LinkComponent link={externalAFFNP} />.
+        <SectionSubTitle section={sections[2]?.subsections?.[2]} />
       </div>
       <Sidebar article={article} sections={sections} />
     </div>
