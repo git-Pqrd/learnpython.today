@@ -19,9 +19,9 @@ export default function BlogIntro() {
   const introArticle: CustomLink = blogsDict.intro as CustomLink;
   const externalAFFNP: CustomLink = new CustomLink(
     "https://docs.quantifiedcode.com/python-anti-patterns/readability/asking_for_permission_instead_of_forgiveness_when_working_with_files.html",
-    "ask for forgivness rather than permission",
+    "ask for forgiveness rather than permission",
     true /* external */
-  );
+  ); // TODO: Write about how to write pythonic code
   const yt8HardTruths: CustomLink = new CustomLink(
     "https://www.youtube.com/watch?v=NtfbWkxJTHw",
     "8 Hard truths of programming",
@@ -61,6 +61,7 @@ export default function BlogIntro() {
     true /* external */,
     LINK_TYPE.YOUTUBE_VIDEO
   );
+
   return (
     <div className="my-8 md:px-2 lg:px-4  flex justify-between flex-row">
       <div className="max-w-4xl ">
@@ -129,9 +130,21 @@ export default function BlogIntro() {
         This should be enough if you want something quick (16mins):{" "}
         <LinkComponent link={pythonSyntaxVideo} />
         <SectionSubTitle section={sections[2]?.subsections?.[1]} />
-        Plus, as the Python idiom goes, you should always{" "}
-        <LinkComponent link={externalAFFNP} />.
-        <SectionSubTitle section={sections[2]?.subsections?.[2]} />
+        Python emphasizes simplicity and readability, meaining that you can
+        expect to write less code with Python than you would with let's say
+        JAVA.
+        <br />
+        Python's huge toolbox and awesome community make it super flexible,
+        perfect for everything from building websites to data science and
+        creating AI.
+        <br />
+        It comes however at the cost of speed as python is one of the slowest
+        language around.
+        <SectionTitle section={sections[3]} />
+        When diving into Python's syntax, it's smart to zigzag between learning
+        the ropes and tackling actual projects. This way, you're not just
+        memorizing rules; you're applying them in real-world scenarios, which
+        solidifies your understanding and skills.
       </div>
       <Sidebar article={article} sections={sections} />
     </div>
@@ -167,10 +180,6 @@ const sections: Section[] = [
       {
         id: "how-python-is-different",
         title: "How Python is different.",
-      },
-      {
-        id: "pythonic",
-        title: "Pythonic code.",
       },
     ],
     id: "coming-from-another",

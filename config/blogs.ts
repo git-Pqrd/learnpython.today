@@ -40,10 +40,10 @@ export const blogsDict: { [key: string]: Article } = {
     synopsis:
       "Get resources to clear as fast as possible your first step of the Python learning process.",
     date: "04-03-2023",
-    disabled: true,
     extern: false,
   },
-
 } as const;
 
-export const blogs = Object.values(blogsDict).filter((art: Article) => !art.disabled);
+export const blogs = Object.values(blogsDict).filter(
+  (art: Article) => !art.disabled
+);
