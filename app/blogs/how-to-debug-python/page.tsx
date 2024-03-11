@@ -12,7 +12,6 @@ import { Section } from "@/types/section";
 import { Sidebar } from "@/components/sidebar-component";
 import { CustomLink, LINK_TYPE } from "@/types/link";
 import { LinkComponent } from "@/components/custom-link-component";
-import { CopyBlock, dracula } from "react-code-blocks";
 
 export default function BlogIntro() {
   const article: Article = blogsDict.intro;
