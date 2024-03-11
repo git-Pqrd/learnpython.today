@@ -20,7 +20,7 @@ export function SubTitle(props: { text: string; class?: string; id?: string }) {
   return (
     <p
       id={props.id}
-      className={`font-bold text-xl text-muted-foreground mt-4 ${props.class}`}
+      className={`capitalize font-bold text-xl text-muted-foreground mt-4 ${props.class}`}
     >
       {props.text}
     </p>
@@ -33,7 +33,7 @@ export function SectionTitle(props: { section?: Section; class?: string }) {
   return (
     <h3
       id={props.section.id}
-      className={`mt-8 scroll-m-20 text-2xl font-bold tracking-tight mb-2 ${props.class}`}
+      className={`capitalize mt-8 scroll-m-20 text-2xl font-bold tracking-tight mb-2 ${props.class}`}
     >
       &rarr; {props.section.title}
     </h3>
@@ -46,7 +46,7 @@ export function SectionSubTitle(props: { section?: Section; class?: string }) {
   return (
     <p
       id={props.section.id}
-      className={`font-bold text-xl text-muted-foreground mt-3 ${props.class}`}
+      className={`capitalize font-bold text-xl text-muted-foreground mt-3 ${props.class}`}
     >
       {props.section?.title}
     </p>

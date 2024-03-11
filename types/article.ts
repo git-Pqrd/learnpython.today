@@ -6,7 +6,7 @@ export class Article {
   tags: Tag[];
   synopsis: string;
   date: string;
-  extern: boolean;
+  extern?: boolean;
   starred?: boolean;
   disabled?: boolean;
 

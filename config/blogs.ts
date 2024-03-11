@@ -42,6 +42,15 @@ export const blogsDict: { [key: string]: Article } = {
     date: "04-03-2023",
     extern: false,
   },
+  how_to_debug: {
+    title: "The Art of Debugging in Python",
+    href: "/blogs/how-to-debug-python",
+    tags: [kt.how_to, kt.resources],
+    synopsis: "A Guide to Squashing Bugs Efficiently",
+    date: "11-03-2023",
+    extern: false,
+    disabled: false
+  },
 } as const;
 
 export const blogs = Object.values(blogsDict).filter(
