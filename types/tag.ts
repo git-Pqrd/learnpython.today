@@ -28,5 +28,9 @@ export const knownTags: { [key: string]: Tag } = {
     how_to: {
         text: "How To",
         href: "/tags/how_to",
+    },
+    syntax: {
+        text: "Syntax",
+        href: "/tags/syntax",
     }
 };
