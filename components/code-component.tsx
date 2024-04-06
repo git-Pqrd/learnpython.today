@@ -8,17 +8,17 @@ import { nord as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { CheckIcon, StopIcon, Cross2Icon } from "@radix-ui/react-icons";
 
 export function CodeComponent(props: { codeBlock: CodeBlock }) {
-  if (!props.codeBlock) return;
+  const [tried, setTried] = useState<CodeLine[]>([]);
 
+  if (!props.codeBlock) return;
   const codeLines: CodeLine[] = props.codeBlock.codeLines.filter((cl) =>
     [StateEnum.NORMAL, StateEnum.ERROR].includes(cl.state)
   );
 
-  const [tried, setTried] = useState<CodeLine[]>([]);
   const interact = (cl: CodeLine) => {
     // incrementing the counter and skipping if not first time guessed.
     if (tried.includes(cl)) return;
-    setTried([...tried, cl])
+    setTried([...tried, cl]);
 
     if (cl.state == StateEnum.NORMAL) {
     }
@@ -42,13 +42,15 @@ export function CodeComponent(props: { codeBlock: CodeBlock }) {
         border += index == codeLines.length - 1 ? "5px 5px " : "0 0 ";
 
         const CustomPre = (props: any) => {
-          let icon = <StopIcon className="absolute top-3 right-3 " />;
+          const cn = "absolute top-3 right-3 text-white";
+          let icon = <StopIcon className={cn} />;
           if (tried.includes(cl) && cl.state == StateEnum.ERROR) {
-            icon = <CheckIcon className="absolute top-3 right-3 " />;
+            icon = <CheckIcon className={cn} />;
           }
           if (tried.includes(cl) && cl.state == StateEnum.NORMAL) {
-            icon = <Cross2Icon className="absolute top-3 right-3 " />;
+            icon = <Cross2Icon className={cn} />;
           }
+
           return (
             <span className="relative">
               <pre style={{ margin: 0, padding: 0 }} {...props} />
