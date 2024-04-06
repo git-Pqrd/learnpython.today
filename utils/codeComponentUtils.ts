@@ -1,5 +1,5 @@
 import { CodeLine, StateEnum } from "@/types/codeLine";
-import { CodeBlock } from "@/types/codeblock";
+import { CodeBlock } from "@/types/codeBlock";
 
 export function getDiscovered(
   codeBlock: CodeBlock,
