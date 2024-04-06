@@ -137,6 +137,7 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
                 codeTagProps={{
                   className: "codeLine py-0 rounded-md",
                 }}
+                wrapLongLines={true}
                 wrapLines={true}
                 lineProps={() => {
                   return {
