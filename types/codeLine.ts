@@ -23,6 +23,5 @@ export class CodeLine {
     this.state = state;
     this.hint = hint;
     this.score = score;
-    this.score = score;
   }
 }

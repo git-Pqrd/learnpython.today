@@ -10,7 +10,10 @@ export default function HomeBlog() {
   return (
     <div>
       <CH1 text="Find the Error & Fix" />
-      <SubTitle class="max-w-[400px]" text="Someone made a mistake in the syntax find it and pick the correct answer." />
+      <SubTitle
+        class="max-w-[400px]"
+        text="Someone made a mistake in the syntax find it and pick the correct answer."
+      />
       <div className="max-w-[800px]">
         <CodeComponent codeBlock={JSON.parse(JSON.stringify(codeBlock))} />
       </div>
@@ -23,12 +26,18 @@ const codeBlock = new CodeBlock(
   [kt.games],
   [
     new CodeLine("def hello(x):"),
-    new CodeLine("  print(x) \n print(hsdf)"),
+    new CodeLine(
+      "  print(x) \n print(hsdf)",
+      StateEnum.NORMAL,
+      "print(hsdf) could actually work here."
+    ),
+    new CodeLine("  print(x)"),
     new CodeLine("class hello(x): \n def __init__(self) ", StateEnum.ERROR),
     new CodeLine("def hello(x)", StateEnum.CORRECT, "Good Catch", 10),
     new CodeLine("function hello(x)", StateEnum.WRONG),
+    new CodeLine("def hello(x)", StateEnum.CORRECT, "Good Catch", 10),
+    new CodeLine("function hello(x)", StateEnum.WRONG),
     new CodeLine("defition hello(x)", StateEnum.WRONG),
-    new CodeLine("  print(x)"),
   ],
-  "python",
+  "text"
 );
