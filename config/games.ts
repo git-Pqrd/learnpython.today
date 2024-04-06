@@ -8,7 +8,18 @@ export const gamesDict: { [key: string]: Game } = {
     tags: [kt.syntax, kt.python],
     synopsis:
       "Find the errors and test your Syntax. Make sure you have the syntax basics with this fun and interactive Python Game.",
-    date: "04-01-2023",
+    date: "04-01-2024",
+    level: 0,
+    disabled: false,
+    extern: false,
+  },
+  easy_syntax_2: {
+    title: "Easy !! Error Finder",
+    href: "/games/easy_syntax_2",
+    tags: [kt.syntax, kt.python],
+    synopsis:
+      "Find the errors and test your Syntax. Make sure you have the syntax basics with this fun and interactive Python Game.",
+    date: "03-01-2023",
     level: 0,
     disabled: false,
     extern: false,

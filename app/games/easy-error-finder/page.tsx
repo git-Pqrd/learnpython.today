@@ -2,11 +2,13 @@ import * as React from "react";
 import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
 import { knownTags as kt } from "@/types/tag";
+import { gamesDict } from "@/config/games";
 
 import { CH1, SubTitle } from "@/components/custom-typo";
 import { CodeComponent } from "@/components/code-component";
 
 export default function HomeBlog() {
+  const game = gamesDict.easy_syntax;
   return (
     <div>
       <CH1 text="Find the Error & Fix" />
@@ -15,7 +17,10 @@ export default function HomeBlog() {
         text="Someone made a mistake in the syntax find it and pick the correct answer."
       />
       <div className="max-w-[800px]">
-        <CodeComponent codeBlock={JSON.parse(JSON.stringify(codeBlock))} />
+        <CodeComponent
+          game={game}
+          codeBlock={JSON.parse(JSON.stringify(codeBlock))}
+        />
       </div>
     </div>
   );
@@ -35,9 +40,7 @@ const codeBlock = new CodeBlock(
     new CodeLine("class hello(x): \n def __init__(self) ", StateEnum.ERROR),
     new CodeLine("def hello(x)", StateEnum.CORRECT, "Good Catch", 10),
     new CodeLine("function hello(x)", StateEnum.WRONG),
-    new CodeLine("def hello(x)", StateEnum.CORRECT, "Good Catch", 10),
-    new CodeLine("function hello(x)", StateEnum.WRONG),
     new CodeLine("defition hello(x)", StateEnum.WRONG),
   ],
-  "text"
+  "python"
 );
