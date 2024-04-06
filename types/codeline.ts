@@ -17,11 +17,12 @@ export class CodeLine {
     content: string,
     state: StateEnum = StateEnum.NORMAL,
     hint: string = "",
-    score: number = 0
+    score: number = 0,
   ) {
     this.content = content;
     this.state = state;
     this.hint = hint;
+    this.score = score;
     this.score = score;
   }
 }
