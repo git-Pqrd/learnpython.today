@@ -1,17 +1,17 @@
 import * as React from "react";
+import { Game } from "@/types/game";
 import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
-import { knownTags as kt } from "@/types/tag";
 import { gamesDict } from "@/config/games";
 
 import { CH1, SubTitle } from "@/components/custom-typo";
 import { CodeComponent } from "@/components/code-component";
 
 export default function HomeBlog() {
-  const game = gamesDict.easy_syntax;
+  const game: Game = gamesDict.easy_string;
   return (
     <div>
-      <CH1 text="Find the Error & Fix" />
+      <CH1 text={game.title} />
       <SubTitle
         class="max-w-[400px]"
         text="Someone made a mistake in the syntax find it and pick the correct answer."
@@ -27,20 +27,27 @@ export default function HomeBlog() {
 }
 
 const codeBlock = new CodeBlock(
-  0,
-  [kt.games],
   [
-    new CodeLine("def hello(x):"),
+    new CodeLine("### Click on the wrong way to create a string"),
     new CodeLine(
-      "  print(x) \n print(hsdf)",
-      StateEnum.NORMAL,
-      "print(hsdf) could actually work here."
+      "greeting = Hello, world",
+      StateEnum.ERROR,
+      "Remember to enclose strings in quotes."
+    ), // Missing quotes
+    new CodeLine(
+      "greeting = 'Hello, world'",
+      StateEnum.CORRECT,
+      "Exactly! Single quotes work as well.",
+      10
     ),
-    new CodeLine("  print(x)"),
-    new CodeLine("class hello(x): \n def __init__(self) ", StateEnum.ERROR),
-    new CodeLine("def hello(x)", StateEnum.CORRECT, "Good Catch", 10),
-    new CodeLine("function hello(x)", StateEnum.WRONG),
-    new CodeLine("defition hello(x)", StateEnum.WRONG),
+    new CodeLine(
+      "greeting = 'Hello, world\"",
+      StateEnum.WRONG,
+      "In Python we can't mix single and double quotes!",
+      10
+    ),
+    new CodeLine('greeting = "Hello, world"'),
+    new CodeLine("###"),
   ],
   "python"
 );

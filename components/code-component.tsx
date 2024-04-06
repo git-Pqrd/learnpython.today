@@ -15,6 +15,7 @@ import {
 } from "@radix-ui/react-icons";
 import { getDiscovered, sortGamesByDate } from "@/utils/codeComponentUtils";
 
+import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
 import { Game } from "@/types/game";
 
@@ -24,6 +25,10 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
   const [discovered, setDiscovered] = useState<CodeLine[]>([]);
   // undefined nextHref will assign one if we find another game and if the players win.
   const [nextHref, setNextHref] = useState<string | undefined>();
+  const { reward } = useReward("rewardId", "confetti", {
+    elementCount: 150,
+    angle: 35,
+  });
   const defaultLines = props.codeBlock.codeLines.filter((cl) =>
     [StateEnum.NORMAL, StateEnum.ERROR].includes(cl.state)
   );
@@ -61,19 +66,22 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
     if (cl.state == StateEnum.CORRECT) {
       setScore(score + cl.score);
       // Next game in time or last created.
-      setNextHref(
-        games
-          .sort(sortGamesByDate)
-          .filter((game) => game.date < props.game.date)[0]?.href ||
-          games[0].href
+      setTimeout(
+        () =>
+          setNextHref(
+            games
+              .sort(sortGamesByDate)
+              .filter((game) => game.date < props.game.date)[0]?.href ||
+              games[0].href
+          ),
+        300
       );
-
-      console.log(nextHref);
+      reward();
     }
   };
 
   return (
-    <div className="">
+    <div id="rewardId">
       <div className="flex flex-col pt-4">
         {props.codeBlock.codeLines
           .filter((cl) => [...defaultLines, ...discovered].includes(cl))
@@ -156,7 +164,7 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
           className="text-black mt-8 font-bold
                 bg-gradient-to-r from-green-400 to-green-700"
         >
-          Go To The Next Problem <ArrowRightIcon className="ml-2 h-4 w-4" />
+          Go To The Next Game <ArrowRightIcon className="ml-2 h-4 w-4" />
         </Button>
       </a>
     </div>

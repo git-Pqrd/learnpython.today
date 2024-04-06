@@ -2,24 +2,35 @@ import { Game } from "@/types/game";
 import { knownTags as kt } from "@/types/tag";
 
 export const gamesDict: { [key: string]: Game } = {
-  easy_syntax: {
-    title: "Easy Error Finder",
-    href: "/games/easy-error-finder",
+  introduction: {
+    title: "Introduction",
+    href: "/games/introduction",
     tags: [kt.syntax, kt.python],
     synopsis:
-      "Find the errors and test your Syntax. Make sure you have the syntax basics with this fun and interactive Python Game.",
+      "Get started with our games and find out how to play.",
+    date: "04-07-2024",
+    level: 0,
+    disabled: false,
+    extern: false,
+  },
+  easy_string: {
+    title: "How to declare a string",
+    href: "/games/easy-string",
+    tags: [kt.syntax, kt.python],
+    synopsis:
+      "Find how to declare a simple string and how not to!",
     date: "04-01-2024",
     level: 0,
     disabled: false,
     extern: false,
   },
-  easy_syntax_2: {
-    title: "Easy !! Error Finder",
-    href: "/games/easy_syntax_2",
+  easy_2_string: {
+    title: "How to declare a string II",
+    href: "/games/easy-2-string",
     tags: [kt.syntax, kt.python],
     synopsis:
-      "Find the errors and test your Syntax. Make sure you have the syntax basics with this fun and interactive Python Game.",
-    date: "03-01-2023",
+      "Find how to declare a simple string and how not to!",
+    date: "04-01-2024",
     level: 0,
     disabled: false,
     extern: false,
