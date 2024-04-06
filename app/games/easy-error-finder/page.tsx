@@ -31,5 +31,5 @@ const codeBlock = new CodeBlock(
     new CodeLine("def hello(x)", StateEnum.WRONG),
     new CodeLine(" print(x)"),
   ],
-  'text'
+  "text"
 );
