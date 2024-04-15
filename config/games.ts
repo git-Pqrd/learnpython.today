@@ -18,7 +18,7 @@ export const gamesDict: { [key: string]: Game } = {
     href: "/games/easy-string",
     tags: [kt.syntax, kt.python],
     synopsis:
-      "Find how to declare a simple string and how not to!",
+      "Find how to declare a simple string. And how not to!",
     date: "04-01-2024",
     level: 0,
     disabled: false,
@@ -29,7 +29,7 @@ export const gamesDict: { [key: string]: Game } = {
     href: "/games/easy-2-string",
     tags: [kt.syntax, kt.python],
     synopsis:
-      "Find how to declare a simple string and how not to!",
+      "A slightly hard version of the string I.",
     date: "04-01-2024",
     level: 0,
     disabled: false,

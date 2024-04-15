@@ -27,6 +27,18 @@ export function SubTitle(props: { text: string; class?: string; id?: string }) {
   );
 }
 
+/** Game Description */
+export function GameDesc(props: { text: string; class?: string; id?: string }) {
+  return (
+    <p
+      id={props.id}
+      className={`capitalize text-m text-muted-foreground font-mono mt-4 ${props.class}`}
+    >
+      {props.text}
+    </p>
+  );
+}
+
 /** Custom SectionTitle */
 export function SectionTitle(props: { section?: Section; class?: string }) {
   if (props.section === undefined) return;

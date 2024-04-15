@@ -20,6 +20,10 @@ export const docsConfig: DocsConfig = {
             href: "/blogs",
         },
         {
+            title: "Games",
+            href: "/games",
+        },
+        {
             title: "GitHub",
             href: siteConfig.links.github,
             external: true,
@@ -34,16 +38,6 @@ export const docsConfig: DocsConfig = {
                     title: "Popular Tags",
                     href: "/tags",
                     items: [
-                        {
-                            title: "GitHub",
-                            href: siteConfig.links.github,
-                            external: true,
-                        },
-                        {
-                            title: "GitHub",
-                            href: siteConfig.links.github,
-                            external: true,
-                        },
                         {
                             title: "GitHub",
                             href: siteConfig.links.github,

@@ -17,7 +17,7 @@ export function GameCard(props: { game: Game }) {
   return (
     <Card
       className={`${article.starred ? "shadow-lg shadow-green-500/50" : ""}
-      max-w-full md:w-[450px] mr-4 my-4 flex flex-col justify-between bg-background`}
+      max-w-full w-full md:w-[450px] mr-4 my-4 flex flex-col justify-between bg-background`}
     >
       <CardHeader>
         <CardTitle className="truncate pb-1 flex">
