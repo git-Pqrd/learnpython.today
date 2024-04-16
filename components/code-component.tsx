@@ -1,41 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { games } from "@/config/games";
 import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { nord as theme } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nord as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import {
+  CheckCircledIcon,
+  Crosshair1Icon,
+  Crosshair2Icon,
   CheckIcon,
   StopIcon,
   Cross2Icon,
   ArrowRightIcon,
 } from "@radix-ui/react-icons";
 import { getDiscovered, sortGamesByDate } from "@/utils/codeComponentUtils";
-
+import { reviver } from "@/utils/codeComponentUtils";
 import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
 import { Game } from "@/types/game";
 
-export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
+export function CodeComponent(props: { game: Game }) {
   const [score, setScore] = useState(0);
   const [tried, setTried] = useState<CodeLine[]>([]);
   const [discovered, setDiscovered] = useState<CodeLine[]>([]);
+  const [userSubHint, setUserSubHint] = useState(
+    <>
+      <Crosshair1Icon /> <span className="pl-1">Find the error</span>{" "}
+    </>
+  );
   // undefined nextHref will assign one if we find another game and if the players win.
   const [nextHref, setNextHref] = useState<string | undefined>();
+  const { toast } = useToast();
   const { reward } = useReward("rewardId", "confetti", {
     elementCount: 150,
     angle: 35,
   });
-  const defaultLines = props.codeBlock.codeLines.filter((cl) =>
+
+  const codeBlock: CodeBlock = useMemo(
+    () => JSON.parse(props.game.codeBlock, reviver),
+    [props.game]
+  );
+  const defaultLines = codeBlock.codeLines.filter((cl) =>
     [StateEnum.NORMAL, StateEnum.ERROR].includes(cl.state)
   );
-
-  const { toast } = useToast();
-
-  if (!props.codeBlock) return;
 
   const interact = (cl: CodeLine) => {
     // incrementing the counter and skipping if not first time guessed.
@@ -54,7 +64,13 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
         title: "Good Job! That was it!",
         description: "Find the correct line in the given candidates",
       });
-      setDiscovered([...discovered, ...getDiscovered(props.codeBlock, cl)]);
+      setDiscovered([...discovered, ...getDiscovered(codeBlock, cl)]);
+      setUserSubHint(
+        <>
+          <Crosshair2Icon />{" "}
+          <span className="pl-1">Click on the line that fixes the problem.</span>{" "}
+        </>
+      );
     }
     if (cl.state == StateEnum.WRONG) {
       toast({
@@ -76,14 +92,21 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
           ),
         300
       );
+      setUserSubHint(
+        <>
+          {" "}
+          <CheckCircledIcon /> <span className="pl-1">Congrats!</span>{" "}
+        </>
+      );
       reward();
     }
   };
 
+  //find out why not interactive anymore.
   return (
     <div id="rewardId">
       <div className="flex flex-col pt-4">
-        {props.codeBlock.codeLines
+        {codeBlock.codeLines
           .filter((cl) => [...defaultLines, ...discovered].includes(cl))
           .map((cl: CodeLine, index: number) => {
             const isCandidate = [StateEnum.WRONG, StateEnum.CORRECT].includes(
@@ -132,7 +155,7 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
                   paddingLeft: "15px",
                   borderRadius: border,
                 }}
-                language={props.codeBlock.language}
+                language={codeBlock.language}
                 showLineNumbers={false}
                 codeTagProps={{
                   className: "codeLine py-0 rounded-md",
@@ -156,9 +179,12 @@ export function CodeComponent(props: { codeBlock: CodeBlock; game: Game }) {
               </SyntaxHighlighter>
             );
           })}
+        <div className="flex items-center font-bold text-muted-foreground">
+          {userSubHint}
+        </div>
       </div>
       <a
-        href={`${nextHref}`}
+        href={`/games/${nextHref}`}
         className={score > 0 && nextHref ? "flex" : "hidden"}
       >
         <Button

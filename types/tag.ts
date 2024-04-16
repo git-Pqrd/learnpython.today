@@ -32,5 +32,13 @@ export const knownTags: { [key: string]: Tag } = {
     syntax: {
         text: "Syntax",
         href: "/tags/syntax",
+    },
+    ds: {
+        text: "Data Structure",
+        href: "/tags/ds",
+    },
+    lists: {
+        text: "List",
+        href: "/tags/lists",
     }
 };
