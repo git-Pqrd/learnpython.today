@@ -6,13 +6,6 @@ export default function About() {
         <div className="text-lg py-12 max-w-4xl ">
             <CH1 text={"Hi! I'm François, the creator of LearnPython.Today."} />
             <div className="flex items-center md:items-end py-3 flex-col md:flex-row">
-                <Image
-                    className="rounded-lg"
-                    src={"/me.webp"}
-                    width={200}
-                    height={200}
-                    alt="Picture of the author"
-                />
                 <p className={boldPClasses}>
                     I got into coding because I wanted to{" "}
                     <b>solve real-world problems.</b> This problem-solving-driven
