@@ -18,13 +18,11 @@ export const gamesDict: { [key: string]: Game } = {
     codeBlock: JSON.stringify(
       new CodeBlock(
         [
-          new CodeLine("### Prints the content of the given argument"),
           new CodeLine("def hello(x):"),
           new CodeLine("  Print(x)", StateEnum.ERROR),
           new CodeLine("  print(x)", StateEnum.CORRECT, "Good Catch!", 10),
           new CodeLine("  print x", StateEnum.WRONG),
           new CodeLine("  Print x", StateEnum.WRONG),
-          new CodeLine("###"),
         ],
         "python"
       ),
@@ -44,7 +42,6 @@ export const gamesDict: { [key: string]: Game } = {
     codeBlock: JSON.stringify(
       new CodeBlock(
         [
-          new CodeLine("### Click on the wrong way to create a string"),
           new CodeLine(
             "greeting = Hello, world",
             StateEnum.ERROR,
@@ -63,7 +60,6 @@ export const gamesDict: { [key: string]: Game } = {
             10
           ),
           new CodeLine('greeting = "Hello, world"'),
-          new CodeLine("###"),
         ],
         "python"
       )
@@ -113,7 +109,7 @@ export const gamesDict: { [key: string]: Game } = {
     text: "Someone made a mistake in the syntax find it and pick the correct answer.",
   },
   data_structures_complex: {
-    title: "Medium Data Structures: Lists and Dictionaries",
+    title: "Lists and Dictionaries",
     href: "data-structures-medium",
     tags: [kt.syntax, kt.ds, kt.python],
     synopsis:
@@ -125,7 +121,6 @@ export const gamesDict: { [key: string]: Game } = {
     codeBlock: JSON.stringify(
       new CodeBlock(
         [
-          new CodeLine( "### Master lists and dictionaries by solving the issues", StateEnum.NORMAL, "This is a comment line to guide you."),
           new CodeLine( "items = [1, 2, 3, 4]", StateEnum.NORMAL, "Initialization of a list with integers."),
           new CodeLine( "settings = {'volume': 70, 'brightness': 50}", StateEnum.NORMAL, "Initialization of a dictionary with two keys."),
           new CodeLine( "print(settings['brightness'])", StateEnum.NORMAL, "Prints the value associated with the 'brightness' key."),
@@ -141,7 +136,7 @@ export const gamesDict: { [key: string]: Game } = {
           new CodeLine( "if 'color' in settings: print(settings['color'])", StateEnum.NORMAL, "Conditional to check existence of 'color' and print it."),
           new CodeLine( "items.extend([7, 8])", StateEnum.NORMAL, "Extends the list by appending elements 7 and 8."),
           new CodeLine( "print(settings.keys())", StateEnum.NORMAL, "Prints all keys in the 'settings' dictionary."),
-          new CodeLine("###", StateEnum.NORMAL, "End of code block."), ], "python"),
+          ], "python"),
       replacer,
       2
     ),
@@ -158,7 +153,6 @@ export const gamesDict: { [key: string]: Game } = {
     extern: false,
     codeBlock: JSON.stringify(new CodeBlock(
         [
-            new CodeLine("### Analyze and correct the list comprehension syntax"),
             new CodeLine("numbers = [1, 2, 3, 4, 5]", StateEnum.NORMAL, "A simple list of integers."),
             new CodeLine("squares = [x**2 for x in numbers]", StateEnum.NORMAL, "Correct list comprehension for squaring numbers."),
             new CodeLine("squares = [x**2 for x in range(5)]", StateEnum.NORMAL, "Another correct form, iterating over a range."),
@@ -169,7 +163,6 @@ export const gamesDict: { [key: string]: Game } = {
             new CodeLine("evens = [x for x in range(5) if x%2]", StateEnum.WRONG, "Incorrect conditional logic; this collects odd numbers. Review modulus usage."),
             new CodeLine("evens = [x for x in numbers if x/2 == 0]", StateEnum.WRONG, "Division used instead of modulus; incorrect logic. Use modulus for remainders."),
             new CodeLine("evens = [x for x in numbers if not x%2]", StateEnum.NORMAL, "Collects even numbers, using not on the modulus result."),
-            new CodeLine("###", StateEnum.NORMAL, "End of code block."),
         ],
         "python"
     ), replacer, 2),
@@ -186,7 +179,6 @@ array_indexing_traps: {
     extern: false,
     codeBlock: JSON.stringify(new CodeBlock(
         [
-            new CodeLine("### Identify and correct indexing errors in arrays"),
             new CodeLine("data = [10, 20, 30, 40, 50]", StateEnum.NORMAL, "Initialization of a data list."),
             new CodeLine("middle_item = data[2]", StateEnum.NORMAL, "Correctly accesses the middle item of the list."),
             new CodeLine("last_item = data[-1]", StateEnum.NORMAL, "Accesses the last item using negative indexing."),
@@ -195,7 +187,6 @@ array_indexing_traps: {
             new CodeLine("first_item = data[0]", StateEnum.CORRECT, "Correctly accesses the first item.", 10),
             new CodeLine("slice = data[1:4]", StateEnum.NORMAL, "Correctly slices from index 1 to 3."),
             new CodeLine("reverse_slice = data[::-1]", StateEnum.NORMAL, "Correctly reverses the list using slicing."),
-            new CodeLine("###", StateEnum.NORMAL, "End of code block."),
         ],
         "python"
     ), replacer, 2),

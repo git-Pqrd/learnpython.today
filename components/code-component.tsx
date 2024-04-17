@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Game } from "@/types/game";
 
 export function CodeComponent(props: { game: Game }) {
+  const [foundError, setFoundError] = useState(false);
   const [score, setScore] = useState(0);
   const [tried, setTried] = useState<CodeLine[]>([]);
   const [discovered, setDiscovered] = useState<CodeLine[]>([]);
@@ -65,10 +66,13 @@ export function CodeComponent(props: { game: Game }) {
         description: "Find the correct line in the given candidates",
       });
       setDiscovered([...discovered, ...getDiscovered(codeBlock, cl)]);
+      setFoundError(true);
       setUserSubHint(
         <>
           <Crosshair2Icon />{" "}
-          <span className="pl-1">Click on the line that fixes the problem.</span>{" "}
+          <span className="pl-1 font-extrabold">
+            Click on the line that fixes the problem.
+          </span>{" "}
         </>
       );
     }
@@ -98,6 +102,7 @@ export function CodeComponent(props: { game: Game }) {
           <CheckCircledIcon /> <span className="pl-1">Congrats!</span>{" "}
         </>
       );
+      setFoundError(false);
       reward();
     }
   };
@@ -105,7 +110,10 @@ export function CodeComponent(props: { game: Game }) {
   //find out why not interactive anymore.
   return (
     <div id="rewardId">
-      <div className="flex flex-col pt-4">
+      <div className="flex items-center font-bold text-muted-foreground pt-4">
+        {userSubHint}
+      </div>
+      <div className="flex flex-col">
         {codeBlock.codeLines
           .filter((cl) => [...defaultLines, ...discovered].includes(cl))
           .map((cl: CodeLine, index: number) => {
@@ -138,7 +146,10 @@ export function CodeComponent(props: { game: Game }) {
 
               return (
                 <span
-                  className={`relative ${isCandidate && "border-l-8 border-green-900"} `}
+                  className={`relative
+                    ${isCandidate && "border-l-8 border-green-900"}
+                    ${cl.state == StateEnum.NORMAL && foundError && "cursor-default blur-[0.8px] grayscale"}
+                  `}
                 >
                   <pre {...props} /> {icon}{" "}
                 </span>
@@ -179,9 +190,6 @@ export function CodeComponent(props: { game: Game }) {
               </SyntaxHighlighter>
             );
           })}
-        <div className="flex items-center font-bold text-muted-foreground">
-          {userSubHint}
-        </div>
       </div>
       <a
         href={`/games/${nextHref}`}
