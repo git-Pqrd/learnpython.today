@@ -38,7 +38,7 @@ export const knownTags: { [key: string]: Tag } = {
         href: "/tags/ds",
     },
     lists: {
-        text: "List",
+        text: "Lists And Array",
         href: "/tags/lists",
     }
 };

@@ -178,7 +178,7 @@ export const gamesDict: { [key: string]: Game } = {
 array_indexing_traps: {
     title: "Array Indexing Errors",
     href: "array-indexing-errors",
-    tags: [kt.syntax, kt.arrays, kt.python],
+    tags: [kt.syntax, kt.lists, kt.python],
     synopsis: "Spot and rectify common errors in array indexing.",
     date: "04-01-2024",
     level: 1,

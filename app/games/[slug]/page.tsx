@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Game } from "@/types/game";
-import { games, gamesDict } from "@/config/games";
+import { games, } from "@/config/games";
 
 import { CH1, GameDesc } from "@/components/custom-typo";
 import { GameLevel } from "@/components/game-level-component";
@@ -35,7 +35,6 @@ export default function GamePrompt({ params }: { params: { slug: string } }) {
 }
 
 export async function generateStaticParams() {
-  console.log("here");
   return games.map((game: Game) => ({
     slug: game.href,
   }));
