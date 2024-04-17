@@ -1,5 +1,5 @@
 import { Article } from "@/types/article";
-import { knownTags as kt } from "@/types/tag";
+import { knownTags as kt } from "@/config/tag";
 
 export const blogsDict: { [key: string]: Article } = {
     intro: {

@@ -1,5 +1,5 @@
 import { Game } from "@/types/game";
-import { knownTags as kt } from "@/types/tag";
+import { knownTags as kt } from "@/config/tag";
 import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
 import { replacer } from "@/utils/codeComponentUtils";
@@ -8,7 +8,7 @@ export const gamesDict: { [key: string]: Game } = {
   introduction: {
     title: "Introduction",
     href: "introduction",
-    tags: [kt.syntax, kt.python],
+    tags: [kt.syntax],
     synopsis: "Get started with our games and find out how to play.",
     text: `To play the game, you need to put on your detective hat and find the lines of code to spot the bugs! Each game presents you with a snippet of code that contains an error. Your task is to identify the mistake and select the correct option from the provided choices that would fix the code.`,
     date: "04-07-2024",
@@ -33,7 +33,7 @@ export const gamesDict: { [key: string]: Game } = {
   easy_string: {
     title: "How to declare a string",
     href: "string-1",
-    tags: [kt.syntax, kt.python],
+    tags: [kt.syntax],
     synopsis: "Find how to declare a simple string. And how not to!",
     date: "04-01-2024",
     level: 0,
@@ -69,7 +69,7 @@ export const gamesDict: { [key: string]: Game } = {
   easy_2_string: {
     title: "How to declare a string II",
     href: "string-2",
-    tags: [kt.syntax, kt.python],
+    tags: [kt.syntax],
     synopsis: "A slightly hard version of the string I.",
     date: "04-01-2024",
     level: 0,
@@ -111,7 +111,7 @@ export const gamesDict: { [key: string]: Game } = {
   data_structures_complex: {
     title: "Lists and Dictionaries",
     href: "data-structures-medium",
-    tags: [kt.syntax, kt.ds, kt.python],
+    tags: [kt.syntax, kt.ds],
     synopsis:
       "Master Python's lists and dictionaries by identifying and correcting a critical error.",
     date: "04-01-2024",
@@ -145,7 +145,7 @@ export const gamesDict: { [key: string]: Game } = {
   list_comprehensions_basics: {
     title: "Understanding List Comprehensions",
     href: "list-comprehensions-basics",
-    tags: [kt.syntax, kt.lists, kt.python],
+    tags: [kt.syntax, kt.lists],
     synopsis: "Identify the correct way to use list comprehensions for various operations.",
     date: "04-01-2024",
     level: 1,
@@ -171,7 +171,7 @@ export const gamesDict: { [key: string]: Game } = {
 array_indexing_traps: {
     title: "Array Indexing Errors",
     href: "array-indexing-errors",
-    tags: [kt.syntax, kt.lists, kt.python],
+    tags: [kt.syntax, kt.lists],
     synopsis: "Spot and rectify common errors in array indexing.",
     date: "04-01-2024",
     level: 1,
