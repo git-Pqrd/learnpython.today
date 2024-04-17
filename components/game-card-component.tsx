@@ -31,7 +31,7 @@ export function GameCard(props: { game: Game }) {
     >
       <CardHeader>
         <CardTitle className="truncate pb-1 flex">
-          <ControllerIcon /> {article.title}
+          <ControllerIcon/> {article.title}
         </CardTitle>
         <div className="flex">
           {article.tags.map((tag) => (

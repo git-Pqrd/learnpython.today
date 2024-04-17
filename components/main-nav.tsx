@@ -1,5 +1,7 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import ControllerIcon from "@/components/ui/controller-icon";
 import * as React from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -26,13 +28,16 @@ export function MainNav() {
       </a>
       <nav className="flex items-center space-x-6 text-sm font-medium">
         <a
-          href="/about"
+          href="/games/"
           className={cn(
+            "relative",
             "transition-colors hover:text-foreground/80",
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          About
+          <div className="flex items-center">
+          Games{" "} <ControllerIcon size={16} />
+          </div>
         </a>
         <a
           href="/blogs"
