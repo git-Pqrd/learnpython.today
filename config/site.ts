@@ -1,7 +1,7 @@
 export const siteConfig = {
     name: "LearnPython.Today",
     url: "https://learnpython.today",
-    ogImage: "./../public/logo-bg-removed.png",
+    ogImage: "/favicon.ico",
     description:
         "Website for the LearnPython.Today blog.",
     links: {

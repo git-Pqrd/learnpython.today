@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import Head from "next/head";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 
@@ -72,7 +73,70 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <Head>
+          <title>
+            Learn Python Today - Master Python With Interactive Blogs and Games
+          </title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="description"
+            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
+          />
+          {/* Open Graph / Facebook */}
+          <meta
+            property="og:title"
+            content="Learn Python Today - Master Python With Interactive Blogs and Games"
+          />
+          <meta
+            property="og:description"
+            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
+          />
+          <meta property="og:url" content="https://learnpython.today" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:image"
+            content="https://learnpython.today/og-image.jpg"
+          />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content="Learn Python Today - Master Python With Interactive Blogs and Games"
+          />
+          <meta
+            name="twitter:description"
+            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
+          />
+          <meta name="twitter:url" content="https://learnpython.today" />
+          <meta
+            name="twitter:image"
+            content="https://learnpython.today/twitter-card-image.jpg"
+          />
+
+          {/* Additional tags for enhanced link appearance and SEO */}
+          <link rel="canonical" href="https://learnpython.today" />
+          <meta name="author" content="Learn Python Today" />
+
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+        </Head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
