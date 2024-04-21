@@ -110,7 +110,7 @@ export function CodeComponent(props: { game: Game }) {
   //find out why not interactive anymore.
   return (
     <div id="rewardId">
-      <div className="flex items-center font-bold text-muted-foreground pt-4">
+      <div className="flex items-center font-bold text-muted-foreground text-green-500 text-xl pt-4">
         {userSubHint}
       </div>
       <div className="flex flex-col">
@@ -147,7 +147,7 @@ export function CodeComponent(props: { game: Game }) {
               return (
                 <span
                   className={`relative
-                    ${isCandidate && "border-l-8 border-green-900"}
+                    ${isCandidate && "border-2 border-l-4 rounded border-green-500 cursor-cell"}
                     ${cl.state == StateEnum.NORMAL && foundError && "cursor-default blur-[0.8px] grayscale"}
                   `}
                 >
