@@ -21,16 +21,6 @@ export function getDiscovered(
   return discovered;
 }
 
-/** Function to sort games by their date to be used in sort array op */
-export const sortGamesByDate = (a: Game, b: Game) => {
-  // Convert date strings to Date objects for comparison
-  const dateA = new Date(a.date);
-  const dateB = new Date(b.date);
-
-  // Sorting on B is less than A so last art goes first
-  return dateB.getTime() - dateA.getTime();
-};
-
 export function replacer(key: string, value: any) {
   if (value instanceof CodeLine) {
     return {

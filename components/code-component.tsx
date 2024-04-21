@@ -16,7 +16,8 @@ import {
   Cross2Icon,
   ArrowRightIcon,
 } from "@radix-ui/react-icons";
-import { getDiscovered, sortGamesByDate } from "@/utils/codeComponentUtils";
+import { getDiscovered } from "@/utils/codeComponentUtils";
+import { sortGamesByRef } from "@/utils/gamesUtils";
 import { reviver } from "@/utils/codeComponentUtils";
 import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
@@ -70,7 +71,7 @@ export function CodeComponent(props: { game: Game }) {
       setUserSubHint(
         <>
           <Crosshair2Icon />{" "}
-          <span className="pl-1 font-extrabold">
+          <span className="pl-1">
             Click on the line that fixes the problem.
           </span>{" "}
         </>
@@ -90,8 +91,8 @@ export function CodeComponent(props: { game: Game }) {
         () =>
           setNextHref(
             games
-              .sort(sortGamesByDate)
-              .filter((game) => game.date < props.game.date)[0]?.href ||
+              .sort(sortGamesByRef)
+              .filter((game) => game.ref < props.game.ref)[0]?.href ||
               games[0].href
           ),
         300
@@ -146,11 +147,19 @@ export function CodeComponent(props: { game: Game }) {
 
               return (
                 <span
-                  className={`relative
+                  className={`relative group
                     ${isCandidate && "border-2 border-l-4 rounded border-green-500 cursor-cell"}
-                    ${cl.state == StateEnum.NORMAL && foundError && "cursor-default blur-[0.8px] grayscale"}
+                    ${cl.state == StateEnum.NORMAL && foundError && "cursor-default blur-[0.8px] grayscale hover:translate-x-0"}
+                    ${cl.state == StateEnum.ERROR && foundError && "cursor-default hover:translate-x-0"}
                   `}
                 >
+                  <span className={`
+                  absolute bottom-0 top-0 left-0
+                  opacity-0
+                  group-hover:opacity-100
+                  group-hover:translate-x-[-22px] transition ease-in-out`}>
+                   {foundError ? "+" : "-"}
+                  </span>
                   <pre {...props} /> {icon}{" "}
                 </span>
               );
