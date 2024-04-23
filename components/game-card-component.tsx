@@ -12,28 +12,35 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { GameLevel } from "./game-level-component";
 
 export function GameCard(props: { game: Game }) {
-  const article = props.game;
-  if (!article) return;
+  const game = props.game;
+  if (!game) return;
 
   return (
     <Card
-      className={`${article.starred ? "shadow-lg shadow-green-500/50" : ""}
-      max-w-full w-full md:w-[450px] my-1 md:mr-4 md:my-4 flex flex-col justify-between bg-background cursor-pointer`}
-    >
-      <a href={`/games/${article.href}`} className="hover:translate-y-1">
+      className={`${game.starred ? "shadow-lg shadow-green-500/50" : ""}
+      max-w-full w-full md:w-[450px] my-1 md:mr-4 md:my-4 flex flex-col
+      justify-between bg-background cursor-pointer relative `}
+         >
+      <a href={`/games/${game.href}`} className="hover:translate-y-1">
         <CardHeader>
           <CardTitle className="truncate pb-1 flex max-w-full">
-            <ControllerIcon /> {article.title}
+            <ControllerIcon /> {game.title}
           </CardTitle>
           <div className="flex">
-            {article.tags.map((tag) => (
-              <TagComponent key={tag.text} tag={tag} />
-            ))}
+            <div>
+              {game.tags.map((tag) => (
+                <TagComponent key={tag.text} tag={tag} />
+              ))}
+            </div>
+            <div className="absolute top-1 right-2">
+            <GameLevel small={true} level={game.level} />
+            </div>
           </div>
         </CardHeader>
-        <CardContent>{article.synopsis}</CardContent>
+        <CardContent>{game.synopsis}</CardContent>
         <CardFooter className="flex cursor-pointer justify-end">
           Let's Play! &rarr;
         </CardFooter>

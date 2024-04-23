@@ -1,18 +1,28 @@
 import * as React from "react";
 
-export function GameLevel(props: { level: number }) {
+export function GameLevel(props: {
+  level: number;
+  small?: boolean /* small default to false */;
+}) {
   const disabled = "#454545";
   const enabledOne = "#49DC7E";
   const enabledTwo = "#3DC66F";
   const enabledThree = "#2DA858";
   const enabledFour = "#16813E";
+
+  const width = props.small ? 30 : 50;
+  const height = props.small ? 30 : 40;
   return (
     <div className="flex flex-row">
-      <div className="text-2xl font-black self-end pr-3">Level</div>
+      <div
+        className={`${props.small && "hidden"} text-2xl font-black self-end pr-3`}
+      >
+        Level
+      </div>
       <svg
         className="py-2"
-        width="50"
-        height="40"
+        width={width}
+        height={height}
         viewBox="0 0 180 100"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"

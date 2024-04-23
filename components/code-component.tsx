@@ -41,14 +41,13 @@ export function CodeComponent(props: { game: Game }) {
     angle: 35,
   });
 
-  const codeBlock: CodeBlock = useMemo(
-    () => JSON.parse(props.game.codeBlock, reviver),
-    [props.game]
-  );
+  const codeBlock: CodeBlock = useMemo(() => {
+    console.log(props.game.ref);
+    return JSON.parse(props.game.codeBlock, reviver);
+  }, [props.game]);
   const defaultLines = codeBlock.codeLines.filter((cl) =>
     [StateEnum.NORMAL, StateEnum.ERROR].includes(cl.state)
   );
-
   const interact = (cl: CodeLine) => {
     // incrementing the counter and skipping if not first time guessed.
     if (tried.includes(cl)) return;
@@ -90,12 +89,16 @@ export function CodeComponent(props: { game: Game }) {
       setTimeout(
         () =>
           setNextHref(
-            games
-              .sort(sortGamesByRef)
-              .filter((game) => game.ref < props.game.ref)[0]?.href ||
+            // Try the next one first.
+            games.filter((g) => g.ref == props.game.ref + 1)[0]?.href ||
+              // Default to another of higher score if possible
+              games
+                .sort(sortGamesByRef)
+                .filter((game) => game.ref < props.game.ref)[0]?.href ||
+              // Go back to first one if nothing else.
               games[0].href
           ),
-        300
+        100
       );
       setUserSubHint(
         <>
@@ -153,12 +156,14 @@ export function CodeComponent(props: { game: Game }) {
                     ${cl.state == StateEnum.ERROR && foundError && "cursor-default hover:translate-x-0"}
                   `}
                 >
-                  <span className={`
+                  <span
+                    className={`
                   absolute bottom-0 top-0 left-0
                   opacity-0
                   group-hover:opacity-100
-                  group-hover:translate-x-[-22px] transition ease-in-out`}>
-                   {foundError ? "+" : "-"}
+                  group-hover:translate-x-[-22px] transition ease-in-out`}
+                  >
+                    {foundError ? "+" : "-"}
                   </span>
                   <pre {...props} /> {icon}{" "}
                 </span>

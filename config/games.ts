@@ -4,6 +4,7 @@ import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
 import { stringsGames } from "@/config/games/strings";
 import { syntaxGames } from "@/config/games/syntax";
+import { basicGames } from "@/config/games/basics";
 import { getRef } from "@/utils/gamesUtils";
 
 export const allGames: Game[] = [
@@ -31,6 +32,7 @@ export const allGames: Game[] = [
       )
     )
     .build(),
+  ...basicGames,
   ...stringsGames,
   ...syntaxGames,
 ];

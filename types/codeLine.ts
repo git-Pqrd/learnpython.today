@@ -23,5 +23,8 @@ export class CodeLine {
     this.state = state;
     this.hint = hint;
     this.score = score;
+    if (this.score == 0 && this.state == StateEnum.CORRECT) {
+        this.score = 10;
+    }
   }
 }

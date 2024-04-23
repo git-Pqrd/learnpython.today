@@ -26,6 +26,10 @@ export const knownTags: { [key: string]: Tag } = {
         text: "Syntax",
         href: "/tags/syntax",
     },
+    basics: {
+        text: "Basics",
+        href: "/tags/basic",
+    },
     ds: {
         text: "Data Structure",
         href: "/tags/ds",
@@ -33,5 +37,9 @@ export const knownTags: { [key: string]: Tag } = {
     lists: {
         text: "Lists And Array",
         href: "/tags/lists",
+    },
+    function: {
+        text: "Function",
+        href: "/tags/function",
     }
 };
