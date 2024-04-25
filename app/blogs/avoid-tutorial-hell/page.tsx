@@ -16,7 +16,7 @@ import { Article } from "@/types/article";
 export default function TutorialHell() {
   const article: Article = blogsDict.tutorial_hell;
   return (
-    <div className="my-8 md:px-2 lg:px-4  flex justify-between flex-row">
+    <div className="my-8 md:px-2 lg:px-4 flex justify-center flex-row">
       <div className="max-w-4xl ">
         <CH1 text="How to avoid tutorial hell." />
         <SubTitle
