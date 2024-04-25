@@ -28,7 +28,7 @@ export function BlogCard(props: { article: Article }) {
       </CardHeader>
       <CardContent>{article.synopsis}</CardContent>
       <CardFooter className="flex justify-end">
-        <a className="cursor-pointer" href={article.href}>
+        <a className="cursor-pointer" href={`/blogs/${article.href}`}>
           Go to the article &rarr;
         </a>
       </CardFooter>

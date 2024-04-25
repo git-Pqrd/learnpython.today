@@ -76,3 +76,38 @@
     @apply px-4;
   }
 }
+
+/* styles/global.css */
+@layer components {
+  .markdown h1 {
+    @apply bg-gradient-to-r from-green-400 to-green-700
+      inline-block text-transparent bg-clip-text scroll-m-20
+      text-2xl font-extrabold tracking-tight lg:text-3xl pb-2;
+  }
+  .markdown h2 {
+    @apply text-foreground
+      text-xl font-extrabold tracking-tight lg:text-2xl pt-2;
+  }
+  .markdown h3 {
+    @apply text-foreground font-extrabold tracking-tight pt-1;
+  }
+  .markdown p {
+    @apply mb-4 text-base;
+  }
+  .markdown a {
+    @apply text-green-500 hover:text-green-700 font-bold;
+  }
+    pre {
+    @apply bg-gray-800 text-white p-5 rounded-lg shadow-md overflow-x-auto;
+  }
+
+  code {
+    @apply font-mono text-xs sm:text-sm md:text-base leading-relaxed;
+  }
+    ul {
+    @apply list-disc pl-5 mt-4;
+  }
+  li {
+    @apply mb-2;
+  }
+}

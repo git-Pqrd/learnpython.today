@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import ControllerIcon from "@/components/ui/controller-icon";
 import * as React from "react";
 import { usePathname } from "next/navigation";

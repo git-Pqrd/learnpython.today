@@ -9,6 +9,7 @@ export class Article {
   extern?: boolean;
   starred?: boolean;
   disabled?: boolean;
+  markdown?: boolean;
 
   constructor(
     href: string,
@@ -18,7 +19,8 @@ export class Article {
     date: string,
     starred: boolean = false,
     disabled: boolean = false,
-    extern: boolean = false
+    extern: boolean = false,
+    markdown: boolean = false
   ) {
     this.href = href;
     this.title = title;
@@ -28,5 +30,6 @@ export class Article {
     this.starred = starred;
     this.disabled = disabled;
     this.extern = extern;
+    this.markdown = markdown;
   }
 }

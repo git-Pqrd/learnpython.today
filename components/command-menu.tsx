@@ -94,7 +94,8 @@ export function CommandMenu({ ...props }: DialogProps) {
                   key={article.href}
                   value={article.title}
                   onSelect={() => {
-                    runCommand(() => router.push(article.href as string));
+                    const href = `/blogs/${article.href as string}`;
+                    runCommand(() => router.push(href));
                   }}
                 >
                   <FileTextIcon className="mr-2 h-4 w-4" />
