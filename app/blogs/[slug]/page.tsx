@@ -41,11 +41,12 @@ export default async function BlogComponent({
         {stringToTags(content).map((c, index) =>
           c.type == "normal" ? (
             <div
+              key={index}
               className="markdown max-w-[1000px] md:px-4"
               dangerouslySetInnerHTML={{ __html: c.content }}
             />
           ) : (
-            <div className="relative w-full mr-3 max-w-[1200px]">
+            <div key={index} className="relative w-full mr-3 max-w-[1200px]">
               <SyntaxHighlighter
                 key={index}
                 style={theme}
