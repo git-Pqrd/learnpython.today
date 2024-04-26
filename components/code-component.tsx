@@ -42,7 +42,6 @@ export function CodeComponent(props: { game: Game }) {
   });
 
   const codeBlock: CodeBlock = useMemo(() => {
-    console.log(props.game.ref);
     return JSON.parse(props.game.codeBlock, reviver);
   }, [props.game]);
   const defaultLines = codeBlock.codeLines.filter((cl) =>

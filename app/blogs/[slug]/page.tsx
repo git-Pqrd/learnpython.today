@@ -5,12 +5,22 @@ import { remark } from "remark";
 import html from "remark-html";
 import { Article } from "@/types/article";
 import Head from "next/head";
+import { nord as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { siteConfig } from "@/config/site";
+import { parse } from "node-html-parser";
+import { CopyToClip } from "@/components/copy-to-clip-component";
+
+interface CustomTag {
+  type: "code" | "normal";
+  content: string;
+  language?: string;
+}
 
 // Can't use @ in fs
 const _IMPORT_STRING = "config/blogs/markdowns/";
 
-export default async function GamePrompt({
+export default async function BlogComponent({
   params,
 }: {
   params: { slug: string };
@@ -22,16 +32,81 @@ export default async function GamePrompt({
 
   const content = await markdownToHtml(article.href);
   return (
-    <div className="px-1 max-w-full md:px-8 md:max-w-[1600px]">
+    <div className="px-1 max-w-full items-center  md:px-8 flex-col flex">
       <Head>
         <title>{`${siteConfig.name} - ${article.title}`}</title>
         <meta name="description">{article.synopsis}</meta>
       </Head>
-      <div className="markdown max-w-[1000px] md:px-4" dangerouslySetInnerHTML={{ __html: content }} />
-      {article.date}
+      <div className=" max-w-[1400px]">
+        {stringToTags(content).map((c, index) =>
+          c.type == "normal" ? (
+            <div
+              className="markdown max-w-[1000px] md:px-4"
+              dangerouslySetInnerHTML={{ __html: c.content }}
+            />
+          ) : (
+            <div className="relative w-full mr-3 max-w-[1200px]">
+              <SyntaxHighlighter
+                key={index}
+                style={theme}
+                customStyle={{
+                  margin: "1px",
+                  padding: "5px",
+                  paddingLeft: "15px",
+                  cursor: "text",
+                }}
+                language={c.language || "python"}
+                showLineNumbers={false}
+                codeTagProps={{
+                  className: "codeLine py-0 rounded-md",
+                }}
+                wrapLongLines={true}
+                wrapLines={true}
+                lineProps={() => {
+                  return {
+                    style: {
+                      cursor: "pointer",
+                      fontWeight: "bolder",
+                      display: "block",
+                    },
+                  };
+                }}
+              >
+                {c.content}
+              </SyntaxHighlighter>
+              <CopyToClip content={c.content} />
+            </div>
+          )
+        )}
+        {article.date}
+      </div>
     </div>
   );
 }
+
+const stringToTags = (content: string): CustomTag[] => {
+  const tags = parse(content);
+  // Split the string and include the delimiters (captured groups)
+  const segments: CustomTag[] = [];
+
+  tags.childNodes.map((tag) => {
+    if (["pre", "code"].includes(tag.rawTagName)) {
+      tag = parse(tag.childNodes[0].toString());
+      segments.push({
+        type: "code",
+        content: tag.innerText,
+        language: "python",
+      });
+    } else {
+      segments.push({
+        type: "normal",
+        content: tag.toString(),
+      });
+    }
+  });
+
+  return segments;
+};
 
 // Function to convert markdown to HTML
 const markdownToHtml = async (slug: string): Promise<string> => {

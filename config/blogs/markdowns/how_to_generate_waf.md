@@ -59,7 +59,3 @@ os.system("mpg321 welcome.wav")
 Using Python's `gTTS` library to generate synthetic voice is straightforward and can be integrated into various applications to enhance accessibility and automation. Whether for educational purposes, entertainment, or service automation, the potential uses are vast and versatile.
 
 Feel free to experiment with different languages supported by Google Translate and various textual inputs to see how effectively `gTTS` can handle them.
-
----
-
-This Markdown format is ready for use on your blog platform and should display properly with the correct handling of code blocks and headings.
