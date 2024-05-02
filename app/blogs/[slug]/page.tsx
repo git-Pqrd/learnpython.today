@@ -79,7 +79,6 @@ export default async function BlogComponent({
             </div>
           )
         )}
-        {article.date}
       </div>
     </div>
   );
