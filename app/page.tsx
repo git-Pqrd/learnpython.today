@@ -24,7 +24,7 @@ export default function Home() {
           <ControllerIcon />{" "}
           <span className="text-lg font-extrabold"> We just launched our games</span>
         </span>
-        <Button> Try them now! </Button>
+        <Button>Try them now!</Button>
       </a>
       <CH1 text="Welcome to LearnPython.Today!" />
       <SubTitle text="A pragmatic plan on how to learn python. How and Why." />

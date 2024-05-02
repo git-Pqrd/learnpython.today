@@ -10,7 +10,7 @@ export default function GamePrompt({ params }: { params: { slug: string } }) {
   const game = games.filter(game => game.href == params.slug)[0];
   if (!game) return <h1>404 - Page Not Found</h1>;
   return (
-    <div className="px-1 max-w-full md:px-8 md:max-w-[1600px]">
+    <div className="px-1 max-w-full md:px-8 md:max-w-[1800px]">
       <div className="justify-between flex flex-row w-full">
         <div className="grow-1 self-start">
           <GameLevel level={game.level} />
@@ -22,10 +22,10 @@ export default function GamePrompt({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row md:py-3 justify-between wrap">
-        <div className="min-w-full md:min-w-[600px] md:max-w-[1400px]">
+        <div className="grow-[3] w-full md:min-w-[600px] md:max-w-[1400px]">
           <CodeComponent game={game} />
         </div>
-        <div className="max-w-full md:min-w-[600px] md:max-w-[800px] md:px-4">
+        <div className="grow-[1] max-w-full md:w-3/6 md:min-w-[300px] md:max-w-[800px] md:px-4 md:pt-4">
           <CH1 text={game.title} />
           <GameDesc text={game.text} />
         </div>

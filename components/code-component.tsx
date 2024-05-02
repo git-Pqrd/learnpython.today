@@ -116,7 +116,7 @@ export function CodeComponent(props: { game: Game }) {
       <div className="flex items-center font-bold text-muted-foreground text-green-500 text-xl pt-4">
         {userSubHint}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col bg-[#475266] p-1 rounded">
         {codeBlock.codeLines
           .filter((cl) => [...defaultLines, ...discovered].includes(cl))
           .map((cl: CodeLine, index: number) => {
