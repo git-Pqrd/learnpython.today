@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import Script from 'next/script'
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/lib/fonts";
@@ -117,7 +118,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {/* Additional tags for enhanced link appearance and SEO */}
           <link rel="canonical" href="https://learnpython.today" />
           <meta name="author" content="Learn Python Today" />
-
           <link rel="shortcut icon" href="/favicon.ico" />
           <link
             rel="apple-touch-icon"
@@ -136,6 +136,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
+        <Script>
+           {`(function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:4972330,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
+        </Script>
         </Head>
         <body
           className={cn(

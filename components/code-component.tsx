@@ -133,7 +133,7 @@ export function CodeComponent(props: { game: Game }) {
 
             const CustomPre = (props: any) => {
               const cn = "absolute top-3 right-3 text-white";
-              let icon = <StopIcon className={cn} />;
+              let icon = <span></span>
               if (
                 tried.includes(cl) &&
                 (cl.state == StateEnum.ERROR || StateEnum.CORRECT)
