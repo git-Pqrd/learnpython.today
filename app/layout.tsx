@@ -80,6 +80,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
+      <head>
+            <HotjarSnippet />
+      </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -92,7 +95,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <HotjarSnippet />
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1 p-1 md:ml-12 py-8">{children}</div>
