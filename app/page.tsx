@@ -15,16 +15,22 @@ export default function Home() {
       <a
         href="/games/"
         className="w-full cursor-pointer p-1 mx-auto max-w-[1000px] rounded
-                justify-between items-center
-                md:mb-2 mb-4 flex bg-muted-foreground
-                hover:translate-y-[-5px] transition-all
-        "
+        bg-[url('/light-bg-pattern.svg')]
+        dark:bg-[url('/dark-bg-pattern.svg')]
+        md:p-3 mb-4
+        shadow-sm shadow-primary
+        justify-between items-center
+        flex bg-muted-foreground
+        hover:translate-y-[-5px] transition-all "
       >
         <span className="flex">
           <ControllerIcon />{" "}
-          <span className="text-lg font-extrabold"> We just launched our games</span>
+          <span className="text-lg font-extrabold">
+            {" "}
+            We just launched our games
+          </span>
         </span>
-        <Button>Try them now!</Button>
+        <Button className="shadow-white">Try them now!</Button>
       </a>
       <CH1 text="Welcome to LearnPython.Today!" />
       <SubTitle text="A pragmatic plan on how to learn python. How and Why." />

@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import Script from 'next/script'
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/lib/fonts";
@@ -7,11 +6,22 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import Head from "next/head";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
+import type { Viewport } from "next";
+import HotjarSnippet from "@/components/ui/hotjar-component";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://learnpython.today"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -31,10 +41,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: "piquard",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -74,69 +80,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <Head>
-          <title>
-            Learn Python Today - Master Python With Interactive Blogs and Games
-          </title>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta
-            name="description"
-            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
-          />
-          {/* Open Graph / Facebook */}
-          <meta
-            property="og:title"
-            content="Learn Python Today - Master Python With Interactive Blogs and Games"
-          />
-          <meta
-            property="og:description"
-            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
-          />
-          <meta property="og:url" content="https://learnpython.today" />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:image"
-            content="https://learnpython.today/og-image.jpg"
-          />
-
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="Learn Python Today - Master Python With Interactive Blogs and Games"
-          />
-          <meta
-            name="twitter:description"
-            content="Join Learn Python Today to dive into the world of Python through engaging blogs and interactive games. Start your coding journey and become a Python expert in no time!"
-          />
-          <meta name="twitter:url" content="https://learnpython.today" />
-          <meta
-            name="twitter:image"
-            content="https://learnpython.today/twitter-card-image.jpg"
-          />
-
-          {/* Additional tags for enhanced link appearance and SEO */}
-          <link rel="canonical" href="https://learnpython.today" />
-          <meta name="author" content="Learn Python Today" />
-          <link rel="shortcut icon" href="/favicon.ico" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-          />
-        </Head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -149,6 +92,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
+            <HotjarSnippet />
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1 p-1 md:ml-12 py-8">{children}</div>
@@ -158,16 +102,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <DefaultToaster />
         </body>
         <GoogleTagManager gtmId="G-RK1D7R0HK7" />
-        <Script id='hotjar'>
-           {`(function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:4972330,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
-        </Script>
       </html>
     </>
   );
