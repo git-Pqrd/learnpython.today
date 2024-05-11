@@ -80,9 +80,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-      <head>
-            <HotjarSnippet />
-      </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -102,6 +99,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </ThemeProvider>
           <DefaultToaster />
+          <HotjarSnippet />
         </body>
         <GoogleTagManager gtmId="G-RK1D7R0HK7" />
       </html>
