@@ -9,7 +9,6 @@ import { SiteHeader } from "@/components/site-header";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Viewport } from "next";
-import HotjarSnippet from "@/components/ui/hotjar-component";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -99,9 +98,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </ThemeProvider>
           <DefaultToaster />
-          <HotjarSnippet />
         </body>
-        <GoogleTagManager gtmId="G-RK1D7R0HK7" />
+        <GoogleTagManager gtmId="GTM-5D69HVRJ" />
       </html>
     </>
   );
