@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="md:px-2 lg:px-4">
       <a
-        href="/games/"
+        href="/games/introduction"
         className="w-full cursor-pointer p-1 mx-auto max-w-[1000px] rounded
         bg-[url('/light-bg-pattern.svg')]
         dark:bg-[url('/dark-bg-pattern.svg')]
@@ -33,7 +33,7 @@ export default function Home() {
         <Button className="shadow-white">Try them now!</Button>
       </a>
       <CH1 text="Welcome to LearnPython.Today!" />
-      <SubTitle text="A pragmatic plan on how to learn python. How and Why." />
+      <SubTitle text="🐍 Dive into Python with ease!" />
       <AboutHome />
       <BlogComponent blogs={filteredBlogs} />
     </div>

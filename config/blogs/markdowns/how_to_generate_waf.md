@@ -40,9 +40,6 @@ myobj = gTTS(text=mytext, lang=language, slow=False)
 
 # Saving the converted audio in a WAV file
 myobj.save("welcome.wav")
-
-# Playing the converted file
-os.system("mpg321 welcome.wav")
 ```
 
 ### Code Explanation
