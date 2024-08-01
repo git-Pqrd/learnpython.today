@@ -15,8 +15,12 @@ export function BlogCard(props: { article: Article }) {
   if (!article) return;
   return (
     <Card
-      className={`${article.starred ? "shadow-lg shadow-green-500/50" : ""}
-      max-w-full md:w-[450px] mr-4 mb-4 flex flex-col justify-between bg-background`}
+      className={`
+        ${article.starred ? "shadow-lg shadow-green-500/50" : ""}
+        w-full lg:w-[calc(50%-1rem)] xl:w-[calc(33.333%-1rem)]
+        m-1 flex flex-col justify-between bg-background
+        transition-all duration-300 hover:shadow-md
+      `}
     >
       <CardHeader>
         <CardTitle className="truncate pb-1">{article.title}</CardTitle>

@@ -60,7 +60,7 @@ export const blogsDict: { [key: string]: Article } = {
     how many months it would take to learn Python.`,
     date: "02-05-2024",
     extern: false,
-    markdown: true
+    markdown: true,
   },
   ...howTos,
 } as const;
