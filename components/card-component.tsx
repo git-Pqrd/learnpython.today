@@ -1,7 +1,9 @@
-import * as React from "react";
-import { Article } from "@/types/article";
-import { TagComponent } from "@/components/tag-component";
+"use client";
 
+import * as React from "react";
+import { UnifiedContent, isGame, isArticle } from "@/types/unifiedContent";
+import { TagComponent } from "@/components/tag-component";
+import ControllerIcon from "@/components/ui/controller-icon";
 import {
   Card,
   CardContent,
@@ -9,33 +11,49 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { GameLevel } from "./game-level-component";
 
-export function BlogCard(props: { article: Article }) {
-  const article = props.article;
-  if (!article) return;
+export function UnifiedCard(props: { content: UnifiedContent }) {
+  const { content } = props;
+  const item = content.content;
+
+  if (!item) return null;
+
+  const isStarred = 'starred' in item ? item.starred : false;
+  const tags = 'tags' in item ? item.tags : [];
+  const title = 'title' in item ? item.title : '';
+  const synopsis = 'synopsis' in item ? item.synopsis : '';
+  const href = 'href' in item ? item.href : '';
+
   return (
     <Card
-      className={`
-        ${article.starred ? "shadow-lg shadow-green-500/50" : ""}
-        w-full lg:w-[calc(50%-1rem)] xl:w-[calc(33.333%-1rem)]
-        m-1 flex flex-col justify-between bg-background
-        transition-all duration-300 hover:shadow-md
-      `}
+      className={`${isStarred ? "shadow-lg shadow-green-500/50" : ""}
+      flex flex-col
+      justify-between bg-background cursor-pointer relative `}
     >
-      <CardHeader>
-        <CardTitle className="truncate pb-1">{article.title}</CardTitle>
-        <div className="flex">
-          {article.tags.map((tag) => (
-            <TagComponent key={tag.text} tag={tag} />
-          ))}
-        </div>
-      </CardHeader>
-      <CardContent>{article.synopsis}</CardContent>
-      <CardFooter className="flex justify-end">
-        <a className="cursor-pointer" href={`/blogs/${article.href}`}>
-          Go to the article &rarr;
-        </a>
-      </CardFooter>
+      <a href={`/${isGame(content) ? 'games' : 'blogs'}/${href}`} className="hover:translate-y-1">
+        <CardHeader>
+          <CardTitle className="truncate pb-1 flex max-w-full">
+            {isGame(content) && <ControllerIcon />} {title}
+          </CardTitle>
+          <div className="flex">
+            <div>
+              {tags.map((tag) => (
+                <TagComponent key={tag.text} tag={tag} />
+              ))}
+            </div>
+            {isGame(content) && (
+              <div className="absolute top-1 right-2">
+                <GameLevel small={true} level={content.content.level} />
+              </div>
+            )}
+          </div>
+        </CardHeader>
+        <CardContent>{synopsis}</CardContent>
+        <CardFooter className="flex cursor-pointer justify-end">
+          {isGame(content) ? "Let's Play!" : "Read More"} &rarr;
+        </CardFooter>
+      </a>
     </Card>
   );
 }

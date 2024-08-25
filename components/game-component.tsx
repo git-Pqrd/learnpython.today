@@ -1,13 +1,15 @@
 import * as React from "react";
-import { GameCard } from "@/components/game-card-component";
 import { Game } from "@/types/game";
+import { UnifiedContent } from "@/types/unifiedContent";
+import { BlogComponent } from "@/components/blog-component";
 
 export function GameComponent(props: { games: Game[] }) {
+  const unifiedContent: UnifiedContent[] = [
+    ...props.games.map((game) => ({ type: "game" as const, content: game })),
+  ];
   return (
     <div className="flex flex-wrap flex-row">
-      {props.games.map((game: Game) => (
-        <GameCard key={game.title} game={game} />
-      ))}
+      <BlogComponent contents={unifiedContent} />
     </div>
   );
 }

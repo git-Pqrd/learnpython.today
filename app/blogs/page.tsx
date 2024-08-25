@@ -1,18 +1,23 @@
 import * as React from "react";
 
 import { CH1 } from "@/components/custom-typo";
-import { blogs, } from "@/config/blogs"
+import { blogs } from "@/config/blogs";
 import { BlogComponent } from "@/components/blog-component";
-import { Article } from "@/types/article";
-import { sortBlogsByDate} from "@/utils/blogsUtils"
+import { sortBlogsByDate } from "@/utils/blogsUtils";
+import { UnifiedContent } from "@/types/unifiedContent";
 
 export default function HomeBlog() {
-    let filteredBlogs: Article[] = sortBlogsByDate(blogs);
+  const filteredBlogs: UnifiedContent[] = [
+    ...sortBlogsByDate(blogs).map((article) => ({
+      type: "article" as const,
+      content: article,
+    })),
+  ];
 
-    return (
-        <div>
-            <CH1 text="Latest articles" />
-            <BlogComponent blogs={filteredBlogs}/>
-        </div>
-    );
+  return (
+    <div>
+      <CH1 text="Latest articles" />
+      <BlogComponent contents={filteredBlogs} />
+    </div>
+  );
 }

@@ -41,5 +41,17 @@ export const knownTags: { [key: string]: Tag } = {
     function: {
         text: "Function",
         href: "/tags/function",
+    },
+    dynamicProgramming: {
+        text: "Dynamic Programming",
+        href: "/tags/dynamicProgramming",
+    },
+    algorithms : {
+        text: "Algorithms",
+        href: "/tags/algo",
+    },
+    leetcode: {
+        text: "LeetCode",
+        href: "/tags/leetcode",
     }
 };

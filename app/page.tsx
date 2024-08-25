@@ -6,10 +6,18 @@ import { sortBlogsByDate } from "@/utils/blogsUtils";
 import { CH1, SubTitle } from "@/components/custom-typo";
 import ControllerIcon from "@/components/ui/controller-icon";
 import { Button } from "@/components/ui/button";
+import { UnifiedContent } from "@/types/unifiedContent";
+import { games } from "@/config/games";
 
 export default function Home() {
   let filteredBlogs: Article[] = sortBlogsByDate(blogs);
   filteredBlogs.slice(0, 4);
+
+    const unifiedContent: UnifiedContent[] = [
+    ...games.map(game => ({ type: 'game' as const, content: game })),
+    ...blogs.map(article => ({ type: 'article' as const, content: article }))
+  ];
+
   return (
     <div className="md:px-2 lg:px-4">
       <a
@@ -35,7 +43,7 @@ export default function Home() {
       <CH1 text="Welcome to LearnPython.Today!" />
       <SubTitle text="🐍 Dive into Python with ease!" />
       <AboutHome />
-      <BlogComponent blogs={filteredBlogs} />
+      <BlogComponent contents={unifiedContent} showFilters={true} />
     </div>
   );
 }

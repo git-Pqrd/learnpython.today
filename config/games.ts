@@ -2,7 +2,9 @@ import { Game, GameBuilder } from "@/types/game";
 import { knownTags as kt } from "@/config/tag";
 import { CodeBlock } from "@/types/codeBlock";
 import { CodeLine, StateEnum } from "@/types/codeLine";
-import { stringsGames } from "@/config/games/strings";
+import { stringGames } from "@/config/games/strings";
+import { listGames } from "@/config/games/list";
+import { leetcodeGames } from "@/config/games/leetcode";
 import { syntaxGames } from "@/config/games/syntax";
 import { basicGames } from "@/config/games/basics";
 import { getRef } from "@/utils/gamesUtils";
@@ -33,8 +35,10 @@ export const allGames: Game[] = [
     )
     .build(),
   ...basicGames,
-  ...stringsGames,
+  ...listGames,
+  ...stringGames,
   ...syntaxGames,
+  ...leetcodeGames,
 ];
 
 export const games: Game[] = Object.values(allGames)
