@@ -93,7 +93,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div className="relative flex min-h-screen w-full flex-col ">
               <SiteHeader />
-              <div className="flex-1 p-1 py-8 mx-auto max-w-[2000px] ">{children}</div>
+              <div className="flex-1 p-1 py-8 w-full mx-auto max-w-[2000px]">{children}</div>
               <SiteFooter />
             </div>
           </ThemeProvider>
