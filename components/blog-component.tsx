@@ -44,7 +44,7 @@ export function BlogComponent({
   }, [contents, searchTerm, contentType, sortBy]);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full">
       {showFilters && (
         <div className="flex flex-wrap gap-4 items-center">
           <input
@@ -74,7 +74,7 @@ export function BlogComponent({
           </select>
         </div>
       )}
-      <div className="grid gap-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="max-w-full w-full gap-2 flex flex-col md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
         {filteredAndSortedContents.map((c: UnifiedContent) => (
           <UnifiedCard key={c.content.title} content={c} />
         ))}

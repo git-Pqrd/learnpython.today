@@ -28,8 +28,9 @@ export function UnifiedCard(props: { content: UnifiedContent }) {
   return (
     <Card
       className={`${isStarred ? "shadow-lg shadow-green-500/50" : ""}
-      flex flex-col
-      justify-between bg-background cursor-pointer relative `}
+      bg-muted
+      flex flex-col max-w-full w-auto
+      justify-between cursor-pointer relative `}
     >
       <a href={`/${isGame(content) ? 'games' : 'blogs'}/${href}`} className="hover:translate-y-1">
         <CardHeader>

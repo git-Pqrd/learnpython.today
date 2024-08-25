@@ -91,9 +91,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen w-full flex-col ">
               <SiteHeader />
-              <div className="flex-1 p-1 md:ml-12 py-8">{children}</div>
+              <div className="flex-1 p-1 py-8 mx-auto max-w-[2000px] ">{children}</div>
               <SiteFooter />
             </div>
           </ThemeProvider>
