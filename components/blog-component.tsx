@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useMemo } from "react";
 import { UnifiedCard } from "@/components/card-component";
+import { useProgressStore } from '@/stores/progress-store';
 import {
   UnifiedContent,
   isGame,
@@ -17,7 +18,9 @@ export function BlogComponent({
 }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [contentType, setContentType] = useState("all");
+  const [completionStatus, setCompletionStatus] = useState("all");
   const [sortBy, setSortBy] = useState("title");
+  const isContentCompleted = useProgressStore.getState().isContentCompleted;
 
   const filteredAndSortedContents = useMemo(() => {
     return contents
@@ -29,7 +32,11 @@ export function BlogComponent({
           contentType === "all" ||
           (contentType === "game" && isGame(c)) ||
           (contentType === "article" && isArticle(c));
-        return matchesSearch && matchesType;
+        const matchesCompletion =
+          completionStatus === "all" ||
+          (completionStatus === "finished" && isContentCompleted(c.content.href)) ||
+          (completionStatus === "unfinished" && !isContentCompleted(c.content.href));
+        return matchesSearch && matchesType && matchesCompletion;
       })
       .sort((a, b) => {
         if (sortBy === "title") {
@@ -41,7 +48,7 @@ export function BlogComponent({
         }
         return 0;
       });
-  }, [contents, searchTerm, contentType, sortBy]);
+  }, [contents, searchTerm, contentType, sortBy, completionStatus, isContentCompleted]);
 
   return (
     <div className="space-y-4 w-full">
@@ -62,6 +69,15 @@ export function BlogComponent({
             <option value="all">All Types</option>
             <option value="game">Games</option>
             <option value="article">Articles</option>
+          </select>
+          <select
+            value={completionStatus}
+            onChange={(e) => setCompletionStatus(e.target.value)}
+            className="w-full sm:w-auto p-2 border rounded"
+          >
+            <option value="all">Everything</option>
+            <option value="finished">Finished</option>
+            <option value="unfinished">Not Yet Done</option>
           </select>
           <select
             value={sortBy}

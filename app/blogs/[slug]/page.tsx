@@ -10,6 +10,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { siteConfig } from "@/config/site";
 import { parse } from "node-html-parser";
 import { CopyToClip } from "@/components/copy-to-clip-component";
+import { ProgressArticle } from "@/components/progress-article";
 
 interface CustomTag {
   type: "code" | "normal";
@@ -32,12 +33,13 @@ export default async function BlogComponent({
 
   const content = await markdownToHtml(article.href);
   return (
-    <div className="px-1 max-w-full items-center  md:px-8 flex-col flex">
+    <div className="px-1 max-w-full items-center relative  md:px-8 flex-col flex">
       <Head>
         <title>{`${siteConfig.name} - ${article.title}`}</title>
         <meta name="description">{article.synopsis}</meta>
       </Head>
-      <div className=" max-w-[1400px]">
+        <ProgressArticle href={article.href} className="fixed top-0 " />
+      <div className="relative max-w-[1400px]">
         {stringToTags(content).map((c, index) =>
           c.type == "normal" ? (
             <div

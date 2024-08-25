@@ -6,7 +6,7 @@ import { TagComponent } from "@/components/tag-component";
 export function TagsGroup(props: { article: Article | undefined }) {
   if (props.article == undefined) return;
   return (
-    <div className="w-full py-3 border border-transparent border-b-4 border-b-green-700">
+    <div className="w-full py-3">
       {props.article.tags.map((tag: Tag) => (
         <TagComponent tag={tag} key={tag.href} />
       ))}

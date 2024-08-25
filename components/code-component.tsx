@@ -22,12 +22,19 @@ import { reviver } from "@/utils/codeComponentUtils";
 import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
 import { Game } from "@/types/game";
+import { useProgressStore } from '@/stores/progress-store';
 
 export function CodeComponent(props: { game: Game }) {
   const [foundError, setFoundError] = useState(false);
   const [score, setScore] = useState(0);
   const [tried, setTried] = useState<CodeLine[]>([]);
   const [discovered, setDiscovered] = useState<CodeLine[]>([]);
+  const {
+    completeGame,
+    setCurrentContent,
+    isContentCompleted,
+  } = useProgressStore();
+
   const [userSubHint, setUserSubHint] = useState(
     <>
       <Crosshair1Icon /> <span className="pl-1">Find the error</span>{" "}
@@ -84,6 +91,7 @@ export function CodeComponent(props: { game: Game }) {
     }
     if (cl.state == StateEnum.CORRECT) {
       setScore(score + cl.score);
+      completeGame(props.game.href);
       // Next game in time or last created.
       setTimeout(
         () =>
