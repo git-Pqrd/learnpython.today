@@ -13,9 +13,9 @@ export default function Home() {
   let filteredBlogs: Article[] = sortBlogsByDate(blogs);
   filteredBlogs.slice(0, 4);
 
-    const unifiedContent: UnifiedContent[] = [
-    ...games.map(game => ({ type: 'game' as const, content: game })),
-    ...blogs.map(article => ({ type: 'article' as const, content: article }))
+  const unifiedContent: UnifiedContent[] = [
+    ...games.map((game) => ({ type: "game" as const, content: game })),
+    ...blogs.map((article) => ({ type: "article" as const, content: article })),
   ];
 
   return (

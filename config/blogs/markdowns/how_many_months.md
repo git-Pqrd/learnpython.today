@@ -1,4 +1,4 @@
-# How Long Does It Take to Learn Python? Insights from the Experts
+# How Long Does It Take to Learn Python?
 
 ## Introduction
 

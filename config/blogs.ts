@@ -62,6 +62,15 @@ export const blogsDict: { [key: string]: Article } = {
     extern: false,
     markdown: true,
   },
+  is_it_bad_to_learn_python_with_chatpgt: {
+    title: "Is It Bad to Learn Python with ChatGPT? A Balanced Perspective",
+    href: "is_it_bad_to_learn_python_with_chatpgt",
+    synopsis:
+      "Learn how to effectively use ChatGPT as a learning tool for Python programming without compromising your learning journey.",
+    tags: [kt.discussion, kt.path],
+    date: "2024-03-20",
+    markdown: true,
+  },
   ...howTos,
 } as const;
 
