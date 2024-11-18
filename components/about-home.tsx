@@ -25,7 +25,7 @@ export function AboutHome() {
 
         <p className="leading-7 mt-3">
           I suggest beginning with the{" "}
-          <a href="/blog/intro" className="font-bold underline">
+          <a href="/blogs/intro" className="font-bold underline">
             introductory article
           </a>
           , but feel free to explore other sections first if you prefer.
