@@ -22,22 +22,20 @@ import { reviver } from "@/utils/codeComponentUtils";
 import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
 import { Game } from "@/types/game";
-import { useProgressStore } from '@/stores/progress-store';
+import { useProgressStore } from "@/stores/progress-store";
 
 export function CodeComponent(props: { game: Game }) {
   const [foundError, setFoundError] = useState(false);
   const [score, setScore] = useState(0);
   const [tried, setTried] = useState<CodeLine[]>([]);
   const [discovered, setDiscovered] = useState<CodeLine[]>([]);
-  const {
-    completeGame,
-    setCurrentContent,
-    isContentCompleted,
-  } = useProgressStore();
+  const { completeGame, setCurrentContent, isContentCompleted } =
+    useProgressStore();
 
   const [userSubHint, setUserSubHint] = useState(
     <>
-      <Crosshair1Icon /> <span className="pl-1">Find the error</span>{" "}
+      <Crosshair1Icon className="h-6 w-6" />
+      <span className="pl-2 text-2xl">Find the error</span>
     </>
   );
   // undefined nextHref will assign one if we find another game and if the players win.
@@ -75,10 +73,10 @@ export function CodeComponent(props: { game: Game }) {
       setFoundError(true);
       setUserSubHint(
         <>
-          <Crosshair2Icon />{" "}
-          <span className="pl-1">
-            Click on the line that fixes the problem.
-          </span>{" "}
+          <Crosshair2Icon className="h-6 w-6" />
+          <span className="pl-2 text-2xl">
+            Click on the line that fixes the problem
+          </span>
         </>
       );
     }
@@ -109,8 +107,8 @@ export function CodeComponent(props: { game: Game }) {
       );
       setUserSubHint(
         <>
-          {" "}
-          <CheckCircledIcon /> <span className="pl-1">Congrats!</span>{" "}
+          <CheckCircledIcon className="h-6 w-6" />
+          <span className="pl-2 text-2xl">Congrats!</span>
         </>
       );
       setFoundError(false);
@@ -121,7 +119,7 @@ export function CodeComponent(props: { game: Game }) {
   //find out why not interactive anymore.
   return (
     <div id="rewardId">
-      <div className="flex items-center font-bold text-muted-foreground text-green-500 text-xl pt-4">
+      <div className="flex items-center font-bold text-muted-foreground text-green-900 py-6 px-4 bg-emerald-200 rounded-lg mb-4 shadow-sm">
         {userSubHint}
       </div>
       <div className="flex flex-col bg-[#475266] p-1 rounded">
@@ -141,7 +139,7 @@ export function CodeComponent(props: { game: Game }) {
 
             const CustomPre = (props: any) => {
               const cn = "absolute top-3 right-3 text-white";
-              let icon = <span></span>
+              let icon = <span></span>;
               if (
                 tried.includes(cl) &&
                 (cl.state == StateEnum.ERROR || StateEnum.CORRECT)
@@ -158,9 +156,20 @@ export function CodeComponent(props: { game: Game }) {
               return (
                 <span
                   className={`relative group
-                    ${isCandidate && "border-2 border-l-4 rounded border-green-500 cursor-cell"}
-                    ${cl.state == StateEnum.NORMAL && foundError && "cursor-default blur-[0.8px] grayscale hover:translate-x-0"}
-                    ${cl.state == StateEnum.ERROR && foundError && "cursor-default hover:translate-x-0"}
+                    ${
+                      isCandidate &&
+                      "border-2 border-l-4 rounded border-green-500 cursor-cell"
+                    }
+                    ${
+                      cl.state == StateEnum.NORMAL &&
+                      foundError &&
+                      "cursor-default blur-[0.8px] grayscale hover:translate-x-0"
+                    }
+                    ${
+                      cl.state == StateEnum.ERROR &&
+                      foundError &&
+                      "cursor-default hover:translate-x-0"
+                    }
                   `}
                 >
                   <span

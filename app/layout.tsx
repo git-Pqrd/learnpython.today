@@ -9,6 +9,14 @@ import { SiteHeader } from "@/components/site-header";
 import { Toaster as DefaultToaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import type { Viewport } from "next";
+import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -78,7 +86,11 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html
+        lang="en"
+        className={`${inter.variable} ${jetbrains.variable}`}
+        suppressHydrationWarning
+      >
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
@@ -93,7 +105,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div className="relative flex min-h-screen w-full flex-col ">
               <SiteHeader />
-              <div className="flex-1 p-1 py-8 w-full mx-auto max-w-[2000px]">{children}</div>
+              <div className="flex-1 p-1 py-8 w-full mx-auto max-w-[2000px]">
+                {children}
+              </div>
               <SiteFooter />
             </div>
           </ThemeProvider>

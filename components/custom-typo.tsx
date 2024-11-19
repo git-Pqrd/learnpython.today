@@ -8,7 +8,7 @@ export function CH1(props: { text: string; id?: string }) {
       id={props.id}
       className="bg-gradient-to-r from-green-400 to-green-700
       inline-block text-transparent bg-clip-text scroll-m-20
-      text-4xl font-extrabold tracking-tight lg:text-5xl pb-2"
+      text-4xl font-extrabold tracking-tight lg:text-5xl pb-2 font-inter"
     >
       {props.text}
     </h1>
@@ -20,7 +20,7 @@ export function SubTitle(props: { text: string; class?: string; id?: string }) {
   return (
     <p
       id={props.id}
-      className={`capitalize font-bold text-xl text-muted-foreground mt-4 ${props.class}`}
+      className={`font-jetbrains text-xl text-muted-foreground mt-4 ${props.class}`}
     >
       {props.text}
     </p>
@@ -28,13 +28,23 @@ export function SubTitle(props: { text: string; class?: string; id?: string }) {
 }
 
 /** Game Description */
-export function GameDesc(props: { text: string; class?: string; id?: string }) {
+export function GameDesc({
+  text,
+  className,
+  id,
+}: {
+  text: string;
+  className?: string;
+  id?: string;
+}) {
   return (
     <p
-      id={props.id}
-      className={`capitalize text-m text-muted-foreground font-mono mt-4 ${props.class}`}
+      id={id}
+      className={`text-m text-muted-foreground font-jetbrains leading-relaxed mt-4 ${
+        className ?? ""
+      }`}
     >
-      {props.text}
+      {text}
     </p>
   );
 }
@@ -45,7 +55,7 @@ export function SectionTitle(props: { section?: Section; class?: string }) {
   return (
     <h3
       id={props.section.id}
-      className={`capitalize mt-8 scroll-m-20 text-2xl font-bold tracking-tight mb-2 ${props.class}`}
+      className={`mt-8 scroll-m-20 text-2xl font-bold tracking-tight mb-2 font-inter ${props.class}`}
     >
       &rarr; {props.section.title}
     </h3>
@@ -58,7 +68,7 @@ export function SectionSubTitle(props: { section?: Section; class?: string }) {
   return (
     <p
       id={props.section.id}
-      className={`capitalize font-bold text-xl text-muted-foreground mt-3 ${props.class}`}
+      className={`font-jetbrains text-xl text-muted-foreground mt-3 ${props.class}`}
     >
       {props.section?.title}
     </p>
@@ -66,6 +76,7 @@ export function SectionSubTitle(props: { section?: Section; class?: string }) {
 }
 
 export const boldPClasses =
-  "leading-7 text-xl font-semibold tracking-tight text-wrap md:ml-8";
+  "leading-7 text-xl font-semibold tracking-tight text-wrap md:ml-8 font-inter";
 
-export const normalPClasses = "leading-7 text-xl tracking-tight text-wrap mt-4";
+export const normalPClasses =
+  "leading-7 text-xl tracking-tight text-wrap mt-4 font-jetbrains";
