@@ -178,7 +178,7 @@ export const basicGames: Game[] = [
                     new CodeLine("  my_list_append(i)", StateEnum.WRONG, "That is not how to append."),
                     new CodeLine("  my_list.append(i)", StateEnum.CORRECT, "Correctly appends i to the list after the loop."),
                     new CodeLine("  my_list.append[i]", StateEnum.WRONG, "Incorrect use of brackets instead of parentheses for the append method."),
-                    new CodeLine("  my_list += [i]", StateEnum.WRONG, "Misleading as it suggests extending the list in the loop."),
+                    new CodeLine("  my_list += i", StateEnum.WRONG, "This won't work. [i] would have been correct."),
                     new CodeLine("return my_list", StateEnum.NORMAL, ""),
                 ],
                 "python"
