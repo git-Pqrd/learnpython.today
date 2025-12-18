@@ -4,6 +4,7 @@ import { CH1, SubTitle } from "@/components/custom-typo";
 import { PathStep } from "@/components/path-step";
 import { Badge } from "@/components/ui/badge";
 import { paths } from "@/config/paths";
+import { Path } from "@/types/path";
 
 export default function PathDetailPage({
   params,
@@ -33,4 +34,10 @@ export default function PathDetailPage({
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  return paths.map((path: Path) => ({
+    slug: path.href,
+  }));
 }
