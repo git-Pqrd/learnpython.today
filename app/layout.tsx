@@ -112,8 +112,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </ThemeProvider>
           <DefaultToaster />
+          <GoogleTagManager gtmId="GTM-5D69HVRJ" />
         </body>
-        <GoogleTagManager gtmId="GTM-5D69HVRJ" />
       </html>
     </>
   );
