@@ -29,7 +29,11 @@ export default function PathDetailPage({
       </div>
       <div className="space-y-4">
         {path.steps.map((step, index) => (
-          <PathStep key={`${path.href}-${step.name}`} step={step} index={index} />
+          <PathStep
+            key={`${path.href}-${step.name}`}
+            step={step}
+            index={index}
+          />
         ))}
       </div>
     </div>
