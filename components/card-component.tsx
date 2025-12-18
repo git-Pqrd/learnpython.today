@@ -20,8 +20,15 @@ export function UnifiedCard(props: { content: UnifiedContent }) {
   const [done, setDone] = React.useState(false);
   const { isContentCompleted } = useProgressStore();
   const { content } = props;
-  const item = content.content;
-  React.useEffect(() => setDone(isContentCompleted(item.href)), [item]);
+  const isPlayableContent = isGame(content) || isArticle(content);
+  const item = isPlayableContent ? content.content : null;
+
+  React.useEffect(() => {
+    if (!item) return;
+    setDone(isContentCompleted(item.href));
+  }, [item, isContentCompleted]);
+
+  if (!item || (!isGame(content) && !isArticle(content))) return null;
 
   if (!item) return null;
 

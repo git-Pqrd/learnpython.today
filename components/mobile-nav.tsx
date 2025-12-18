@@ -12,6 +12,7 @@ import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Badge } from "@/components/ui/badge"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -46,7 +47,10 @@ export function MobileNav() {
                     href={item.href}
                     onOpenChange={setOpen}
                   >
-                    {item.title}
+                    <span className="flex items-center gap-2">
+                      {item.title}
+                      {item.isNew && <Badge className="text-[10px]">New</Badge>}
+                    </span>
                   </MobileLink>
                 )
             )}

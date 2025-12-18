@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useMemo } from "react";
 import { UnifiedCard } from "@/components/card-component";
-import { useProgressStore } from '@/stores/progress-store';
+import { useProgressStore } from "@/stores/progress-store";
 import {
   UnifiedContent,
   isGame,
   isArticle,
+  isLink,
   sortLevel,
 } from "@/types/unifiedContent";
 
@@ -25,9 +26,14 @@ export function BlogComponent({
   const filteredAndSortedContents = useMemo(() => {
     return contents
       .filter((c) => {
+        const title = c.content.title?.toLowerCase?.() ?? "";
+        const synopsis =
+          "synopsis" in c.content && c.content.synopsis
+            ? c.content.synopsis.toLowerCase()
+            : "";
         const matchesSearch =
-          c.content.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          c.content.synopsis.toLowerCase().includes(searchTerm.toLowerCase());
+          title.includes(searchTerm.toLowerCase()) ||
+          synopsis.includes(searchTerm.toLowerCase());
         const matchesType =
           contentType === "all" ||
           (contentType === "game" && isGame(c)) ||
@@ -92,7 +98,7 @@ export function BlogComponent({
       )}
       <div className="max-w-full w-full gap-2 flex flex-col md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3">
         {filteredAndSortedContents.map((c: UnifiedContent) => (
-          <UnifiedCard key={c.content.title} content={c} />
+          !isLink(c) && <UnifiedCard key={c.content.title} content={c} />
         ))}
       </div>
     </div>

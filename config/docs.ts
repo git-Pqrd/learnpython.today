@@ -24,6 +24,11 @@ export const docsConfig: DocsConfig = {
             href: "/games",
         },
         {
+            title: "Paths",
+            href: "/paths",
+            isNew: true,
+        },
+        {
             title: "GitHub",
             href: siteConfig.links.github,
             external: true,

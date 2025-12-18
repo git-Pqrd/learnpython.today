@@ -2,17 +2,20 @@ export class MainNavItem {
     disabled?: boolean;
     external?: boolean;
     items?: MainNavItem[];
+    isNew?: boolean;
     href: string;
     title: string;
 
     constructor(disabled: boolean,
                 external: boolean,
+                isNew: boolean,
                 href: string,
                 title: string,
                 items: MainNavItem[]) {
         this.disabled = disabled;
         this.external = external;
         this.items = items;
+        this.isNew = isNew;
         this.href = href;
         this.title = title;
     }
