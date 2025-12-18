@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "rimraf out",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -55,6 +56,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@types/react-syntax-highlighter": "^15.5.11"
+    "@types/react-syntax-highlighter": "^15.5.11",
+    "rimraf": "^5.0.10"
   }
 }
